@@ -1,7 +1,7 @@
 class_name GameManager extends Node
 
-@onready var world2D = $World2D
-@onready var Gui = $GUI
+@onready var world2D: Node = $World2D
+@onready var ui: Node = $UI
 
 var player: Node = null
 var current_2D_scene: Node = null
@@ -14,22 +14,22 @@ func _ready() -> void:
 	load_player()
 
 
-func get_player():
+func get_player() -> Node:
 	# Get the player node
 	return self.player
 
 
-func get_current_2D_scene():
+func get_current_2D_scene() -> Node:
 	# Get the current 2D scene node
 	return self.current_2D_scene
 
 
-func load_player():
+func load_player() -> void:
 	# Load the player scene and add it to the world2D node
 	pass
 
 
-func close_scene(scene: Node, delete := true):
+func close_scene(scene: Node, delete := true) -> void:
 	# Close the given scene and optionally delete it from memory, might cause memory leaks if not careful
 	if not scene:
 		return
@@ -40,25 +40,25 @@ func close_scene(scene: Node, delete := true):
 	scene = null
 
 
-func change_2D_scene(path: String, delete := true):
+func change_2D_scene(path: String, delete := true) -> void:
 	# Change the current 2D scene to the one specified by the path, optionally deleting the previous scene from memory
 	if not ResourceLoader.exists(path):
 		print("Error: Scene path doesn't exist")
 		return
 	close_scene(current_2D_scene, delete)
 	var scene_resource: PackedScene = load(path)
-	var instance = scene_resource.instantiate()
+	var instance: Node = scene_resource.instantiate()
 	world2D.add_child(instance)
 	current_2D_scene = instance
 
 
-func change_UI_scene(path: String, delete := true):
+func change_UI_scene(path: String, delete := true) -> void:
 	# Change the current UI scene to the one specified by the path, optionally deleting the previous scene from memory
 	if not ResourceLoader.exists(path):
 		print("Error: Scene path doesn't exist")
 		return
 	close_scene(current_UI_scene, delete)
 	var scene_resource: PackedScene = load(path)
-	var instance = scene_resource.instantiate()
-	Gui.add_child(instance)
+	var instance: Node = scene_resource.instantiate()
+	ui.add_child(instance)
 	current_UI_scene = instance
