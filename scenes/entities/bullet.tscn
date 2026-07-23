@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ba30ixlkhjxbr"]
+
+[ext_resource type="Script" uid="uid://ckkgq41kh86jy" path="res://scripts/bullet.gd" id="1_byxw7"]
+[ext_resource type="Texture2D" uid="uid://qnehj38t5cla" path="res://icon.svg" id="1_ma0cl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wotii"]
+
+[node name="Bullet" type="Node2D" unique_id=1523633697]
+script = ExtResource("1_byxw7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1447579324]
+position = Vector2(1.9073486e-06, -1.1920929e-06)
+scale = Vector2(0.15625, 0.234375)
+texture = ExtResource("1_ma0cl")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2023867163]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1570745305]
+shape = SubResource("CapsuleShape2D_wotii")
+
+[node name="Timer" type="Timer" parent="." unique_id=1366101186]
+wait_time = 2.0
+autostart = true

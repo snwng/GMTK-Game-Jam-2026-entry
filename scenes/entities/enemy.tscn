@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://nl7bcs3w2xfu"]
+
+[ext_resource type="Texture2D" uid="uid://qnehj38t5cla" path="res://icon.svg" id="1_d7j71"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k12gj"]
+radius = 64.0
+
+[node name="Enemy" type="Node2D" unique_id=108608531]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1461385682]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1026001430]
+texture = ExtResource("1_d7j71")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1882563533]
+shape = SubResource("CircleShape2D_k12gj")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D" unique_id=229729719]
+
+[node name="Timer" type="Timer" parent="." unique_id=595445072]
+autostart = true

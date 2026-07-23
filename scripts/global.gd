@@ -2,6 +2,7 @@ extends Node
 
 var game_manager: GameManager
 
+
 func _ready() -> void:
 	pass
 

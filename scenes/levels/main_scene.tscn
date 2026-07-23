@@ -1,14 +1,28 @@
 [gd_scene format=3 uid="uid://bq3oqdklf2bdq"]
 
 [ext_resource type="Script" uid="uid://bbw1h5vl235ro" path="res://scripts/game_manager.gd" id="1_6312j"]
+[ext_resource type="PackedScene" uid="uid://n6jtbrkeuo3d" path="res://scenes/entities/props.tscn" id="2_3ulyp"]
+[ext_resource type="PackedScene" uid="uid://dlju7bra6sm3n" path="res://scenes/entities/player.tscn" id="2_ybdc1"]
 
 [node name="MainScene" type="Node" unique_id=347612624]
 script = ExtResource("1_6312j")
 
 [node name="World2D" type="Node2D" parent="." unique_id=1389256083]
 
+[node name="Props" parent="World2D" unique_id=1784190781 instance=ExtResource("2_3ulyp")]
+position = Vector2(-393, -160)
+
+[node name="Props2" parent="World2D" unique_id=1117183916 instance=ExtResource("2_3ulyp")]
+position = Vector2(-401, 108)
+
+[node name="Props3" parent="World2D" unique_id=2026549445 instance=ExtResource("2_3ulyp")]
+position = Vector2(168, -139)
+
 [node name="UI" type="Control" parent="." unique_id=1270152534]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Player" parent="." unique_id=674334736 instance=ExtResource("2_ybdc1")]
+position = Vector2(30, 83)

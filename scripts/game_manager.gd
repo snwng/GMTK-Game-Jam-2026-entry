@@ -1,3 +1,4 @@
+# This script is attached to the GameManager node and manages the game state, including loading and changing scenes, managing the player, and providing access to the current 2D and UI scenes.
 class_name GameManager extends Node
 
 @onready var world2D: Node = $World2D
@@ -23,6 +24,9 @@ func get_current_2D_scene() -> Node:
 	# Get the current 2D scene node
 	return self.current_2D_scene
 
+func add_2D_node(node: Node2D) -> void:
+	# Add a 2D node to the world2D node
+	world2D.add_child(node)
 
 func load_player() -> void:
 	# Load the player scene and add it to the world2D node
