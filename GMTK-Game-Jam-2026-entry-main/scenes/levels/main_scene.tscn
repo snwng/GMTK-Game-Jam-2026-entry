@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bq3oqdklf2bdq"]
+
+[ext_resource type="Script" uid="uid://bbw1h5vl235ro" path="res://scripts/game_manager.gd" id="1_6312j"]
+
+[node name="MainScene" type="Node" unique_id=347612624]
+script = ExtResource("1_6312j")
+
+[node name="World2D" type="Node2D" parent="." unique_id=1389256083]
+
+[node name="UI" type="Control" parent="." unique_id=1270152534]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="." unique_id=1078738706]
+offset_left = 357.0
+offset_top = 305.0
+offset_right = 454.0
+offset_bottom = 328.0
+text = "YOU ARE ON THE MAIN SCENE"
