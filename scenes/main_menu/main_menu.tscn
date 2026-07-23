@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dhvop0ard0x0k"]
+
+[ext_resource type="Script" uid="uid://ew7vlesysvff" path="res://scripts/main_menu.gd" id="1_0ebjn"]
+[ext_resource type="Texture2D" uid="uid://qnehj38t5cla" path="res://icon.svg" id="2_ob46e"]
+
+[node name="Main_menu" type="Node2D" unique_id=1878250518]
+script = ExtResource("1_0ebjn")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1257118969]
+position = Vector2(569.00006, 310.50003)
+scale = Vector2(10.1875, 5.8828125)
+texture = ExtResource("2_ob46e")
+
+[node name="Button" type="Button" parent="." unique_id=1042379062]
+offset_left = 832.0
+offset_top = 356.0
+offset_right = 908.0
+offset_bottom = 387.0
+text = "ENGLISH"
+
+[node name="Button2" type="Button" parent="." unique_id=332537138]
+offset_left = 832.0
+offset_top = 416.0
+offset_right = 912.0
+offset_bottom = 447.0
+text = "ESPAÑOL"
+
+[node name="Credits" type="Button" parent="." unique_id=976892784]
+offset_left = 975.0
+offset_top = 534.0
+offset_right = 1047.0
+offset_bottom = 565.0
+text = "CREDITS"
+
+[node name="Label" type="Label" parent="." unique_id=622678011]
+offset_left = 791.0
+offset_top = 291.0
+offset_right = 962.0
+offset_bottom = 340.0
+text = "Choose your language
+Selecciona tu idioma"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelBlinkTimer" type="Timer" parent="." unique_id=404146927]
+wait_time = 0.5
+autostart = true
+
+[node name="Press_sound" type="AudioStreamPlayer" parent="." unique_id=2084853741]
+
+[node name="Hover_sound" type="AudioStreamPlayer" parent="." unique_id=379748915]
+
+[node name="Intro_music" type="AudioStreamPlayer" parent="." unique_id=601528501]
+volume_db = -13.117
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_English_pressed"]
+[connection signal="mouse_entered" from="Button2" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="mouse_entered" from="Credits" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="timeout" from="LabelBlinkTimer" to="." method="_on_LabelBlinkTimer_timeout"]
