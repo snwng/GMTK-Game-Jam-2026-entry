@@ -1,5 +1,5 @@
 # This script defines the behavior of a bullet in the game. It handles movement, collision detection, and damage application to entities.
-class_name Bullet extends Node2D
+class_name Projectile extends Node2D
 
 const SPEED: float = 500.0
 const LIFETIME: float = 2.0
