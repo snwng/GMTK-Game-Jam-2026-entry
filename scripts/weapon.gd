@@ -1,7 +1,7 @@
+# This script is attached to the Weapon node and handles the firing of projectiles.
 class_name Weapon extends Node2D
 
 @export var Projectile_Spawn_Offset: float = 90.0
-@export var projectile: PackedScene
 @export var cooldown: float = 0.5
 
 var can_fire: bool = true

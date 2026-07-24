@@ -1,6 +1,8 @@
+# This script is a singleton that holds global variables and functions for the game.
 extends Node
 
 var game_manager: GameManager
+var fx_manager: FX_Manager
 
 var language: int = 1
 

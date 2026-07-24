@@ -5,6 +5,8 @@ class_name Player extends Entity
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
+var camera: Camera
+
 var mouse_captured: bool = false
 var can_interact: bool = true # This variable can be used to disable player interaction when needed, such as during cutscenes, dialogues, pauses, etc.
 var is_mouse_form: bool = false # true after the Mouse Morph upgrade is applied
@@ -40,6 +42,8 @@ func rotate_player(mouse: Vector2) -> void:
 
 
 func _ready() -> void:
+	Global.game_manager.player = self
+	camera = $Camera2D
 	capture_mouse()
 	var gun: PackedScene = load("res://scenes/entities/gun.tscn")
 	set_weapon(gun.instantiate())
@@ -66,6 +70,9 @@ func _physics_process(delta: float) -> void:
 	move(input_dir, delta)
 	move_and_slide()
 
+
+func _on_timer_timeout() -> void:
+	self.take_damage(1)
 func _update_animation() -> void:
 	var is_moving: bool = velocity.length() > 5.0 # small threshold to avoid flicker when stopping
 	var anim_name: String

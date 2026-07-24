@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dlju7bra6sm3n"]
 
 [ext_resource type="Script" uid="uid://cmj6jivon5luh" path="res://scripts/player_controller.gd" id="1_08t41"]
+[ext_resource type="Script" uid="uid://c8606cj34t43w" path="res://scripts/camera_effects.gd" id="3_1ie0h"]
 [ext_resource type="Texture2D" uid="uid://cq5xr6e4hsgrl" path="res://assets/sprites/mouse_two_sprites.png" id="2_1ie0h"]
 [ext_resource type="Texture2D" uid="uid://tjxpd8i88lt4" path="res://assets/sprites/Witch_two_sprites.png" id="3_1ie0h"]
 
@@ -94,3 +95,11 @@ sprite_frames = SubResource("SpriteFrames_nxxhf")
 animation = &"idle_normal"
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=839453079]
+script = ExtResource("3_1ie0h")
+default_screen_shake_intensity = 8.0
+shake_decay = 0.95
+
+[node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=121110270]
+autostart = true
+
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

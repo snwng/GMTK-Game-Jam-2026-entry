@@ -1,6 +1,7 @@
 class_name Gun extends Weapon
 
 @onready var timer: Timer = $Timer
+@export var projectile: PackedScene
 
 
 func _ready() -> void:

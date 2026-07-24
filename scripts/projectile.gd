@@ -29,3 +29,5 @@ func _on_collision(body: Node2D) -> void:
 	if body is Entity:
 		body.take_damage(int(DAMAGE * Global.damage_multiplier)) #Neon: this change is for the upgrades
 	queue_free()
+	Global.fx_manager.spawn_particles(Global.fx_manager.HITFX, global_position, rotation - PI)
+	Global.game_manager.player.camera.screen_shake()
