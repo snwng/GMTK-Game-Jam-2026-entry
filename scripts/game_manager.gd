@@ -2,7 +2,7 @@
 class_name GameManager extends Node
 
 @onready var world2D: Node2D = $World2D
-@onready var ui: Control = $UI
+@onready var ui: CanvasLayer = $UI
 
 var player: Player = null
 var current_2D_scene: Node = null
