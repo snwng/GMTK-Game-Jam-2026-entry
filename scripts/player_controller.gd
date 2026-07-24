@@ -3,6 +3,8 @@ class_name Player extends Entity
 
 @export var weapon: Weapon
 
+var camera: Camera
+
 var mouse_captured: bool = false
 var can_interact: bool = true # This variable can be used to disable player interaction when needed, such as during cutscenes, dialogues, pauses, etc.
 
@@ -38,6 +40,8 @@ func rotate_player(mouse: Vector2) -> void:
 
 
 func _ready() -> void:
+	Global.game_manager.player = self
+	camera = $Camera2D
 	capture_mouse()
 	var gun: PackedScene = load("res://scenes/entities/gun.tscn")
 	set_weapon(gun.instantiate())
@@ -63,3 +67,7 @@ func _physics_process(delta: float) -> void:
 	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down") if can_interact else Vector2.ZERO
 	move(input_dir, delta)
 	move_and_slide()
+
+
+func _on_timer_timeout() -> void:
+	self.take_damage(1)

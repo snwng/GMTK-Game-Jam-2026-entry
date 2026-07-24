@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://nl7bcs3w2xfu"]
 
+[ext_resource type="Script" uid="uid://cior8sa8o1tr6" path="res://scripts/enemy.gd" id="1_67neu"]
 [ext_resource type="Texture2D" uid="uid://qnehj38t5cla" path="res://icon.svg" id="1_d7j71"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k12gj"]
@@ -8,6 +9,7 @@ radius = 64.0
 [node name="Enemy" type="Node2D" unique_id=108608531]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1461385682]
+script = ExtResource("1_67neu")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1026001430]
 texture = ExtResource("1_d7j71")
