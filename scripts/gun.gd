@@ -11,10 +11,10 @@ func _ready() -> void:
 		can_fire = true
 	)
 
-func trigger_pressed(origin: Vector2, angle: float) -> void:
+func trigger_pressed(origin: Vector2 = global_position, angle: float = rotation) -> void:
 	if can_fire:
 		can_fire = false
-		var offset: Vector2 = Vector2.UP.rotated(angle) * Projectile_Spawn_Offset
+		var offset: Vector2 = Vector2.RIGHT.rotated(angle) * Projectile_Spawn_Offset
 		var bullet: Projectile = projectile.instantiate()
 		bullet.position = origin + offset
 		bullet.rotation = angle

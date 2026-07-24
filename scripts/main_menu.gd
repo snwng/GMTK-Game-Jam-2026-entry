@@ -1,15 +1,15 @@
 extends Node2D
 
 
-@onready var blinking_label = $Label
-@onready var label_blink_timer = $LabelBlinkTimer 
+@onready var blinking_label: Label = $Label
+@onready var label_blink_timer: Timer = $LabelBlinkTimer
 
 
 func _ready() -> void:
-	
+
 	$Intro_music.play()
 
-func _on_LabelBlinkTimer_timeout():
+func _on_LabelBlinkTimer_timeout() -> void:
 	# label blinks
 	blinking_label.visible = not blinking_label.visible
 

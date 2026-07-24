@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cflr7hhckcdgh" path="res://scripts/gun.gd" id="1_p8dnu"]
 [ext_resource type="PackedScene" uid="uid://ba30ixlkhjxbr" path="res://scenes/entities/bullet.tscn" id="2_rpk72"]
+[ext_resource type="Texture2D" uid="uid://waunj71rxvkm" path="res://assets/sprites/gun.png" id="3_5cik8"]
 
 [node name="gun" type="Node2D" unique_id=446291605]
 script = ExtResource("1_p8dnu")
 projectile = ExtResource("2_rpk72")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1837520056]
+position = Vector2(26, 8)
+texture = ExtResource("3_5cik8")
 
 [node name="Timer" type="Timer" parent="." unique_id=740092070]

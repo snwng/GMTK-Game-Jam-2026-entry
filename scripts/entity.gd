@@ -1,7 +1,7 @@
 # This script defines a base class for all entities in the game, including players and enemies. It handles movement, health management, and basic entity behavior.
 class_name Entity extends CharacterBody2D
 
-@export var VELOCITY: float = 400.0
+@export var VELOCITY: float = 300.0
 @export var ACCELERATION: float = 4000.0
 @export var DECELERATION: float = 4000.0
 @export var MAX_HEALTH: int = 100

@@ -13,7 +13,7 @@ var is_mouse_form: bool = false # true after the Mouse Morph upgrade is applied
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		rotate_player(event.position)
+		rotate_weapon(event.position)
 
 
 func capture_mouse() -> void:
@@ -33,12 +33,12 @@ func set_weapon(new_weapon: Weapon) -> void:
 	add_child(weapon)
 
 
-func rotate_player(mouse: Vector2) -> void:
+func rotate_weapon(mouse: Vector2) -> void:
 	if mouse_captured and can_interact:
 		var center: Vector2 = get_global_transform_with_canvas().get_origin()
 		var direction: Vector2 = mouse - center
-		var angle: float = atan2(direction.y, direction.x) + PI / 2.0
-		rotation = angle
+		var angle: float = atan2(direction.y, direction.x)
+		weapon.rotation = angle
 
 
 func _ready() -> void:
@@ -57,7 +57,7 @@ func _process(_delta: float) -> void:
 	elif Input.is_action_just_pressed("fire"):
 		if mouse_captured:
 			if can_interact:
-				weapon.trigger_pressed(global_position, rotation)
+				weapon.trigger_pressed(global_position)
 		else:
 			capture_mouse()
 	elif Input.is_action_just_released("fire"):
@@ -73,6 +73,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	self.take_damage(1)
+
 func _update_animation() -> void:
 	var is_moving: bool = velocity.length() > 5.0 # small threshold to avoid flicker when stopping
 	var anim_name: String
