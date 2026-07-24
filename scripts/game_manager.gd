@@ -30,7 +30,11 @@ func add_2D_node(node: Node2D) -> void:
 
 func load_player() -> void:
 	# Load the player scene and add it to the world2D node
-	pass
+	var player_scene: PackedScene = load("res://scenes/entities/player.tscn")
+	var instance: Node = player_scene.instantiate()
+	world2D.add_child(instance)
+	# The script lives on the CharacterBody2D child, not on the root node
+	self.player = instance.get_node("CharacterBody2D")
 
 
 func close_scene(scene: Node, delete := true) -> void:
@@ -66,3 +70,13 @@ func change_UI_scene(path: String, delete := true) -> void:
 	var instance: Node = scene_resource.instantiate()
 	ui.add_child(instance)
 	current_UI_scene = instance
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	# TEMPORARY: press U to test the upgrade screen. Remove this later
+	# once the real "all enemies defeated" trigger is hooked up.
+	if event.is_action_pressed("test_upgrade"):
+		show_upgrade_screen()
+
+func show_upgrade_screen() -> void:
+	change_UI_scene("res://scenes/ui/upgrades_store.tscn")

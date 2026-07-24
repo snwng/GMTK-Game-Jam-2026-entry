@@ -1,16 +1,56 @@
 [gd_scene format=3 uid="uid://nl7bcs3w2xfu"]
 
-[ext_resource type="Texture2D" uid="uid://qnehj38t5cla" path="res://icon.svg" id="1_d7j71"]
+[ext_resource type="Script" uid="uid://cior8sa8o1tr6" path="res://scripts/enemy.gd" id="1_67neu"]
+[ext_resource type="Texture2D" uid="uid://ck0yhl6lq02ea" path="res://assets/sprites/red_round_enemy_4_sprites.png" id="2_ktqfp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_defa4"]
+atlas = ExtResource("2_ktqfp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr1g6"]
+atlas = ExtResource("2_ktqfp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlb8m"]
+atlas = ExtResource("2_ktqfp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fpkd"]
+atlas = ExtResource("2_ktqfp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nxxhf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_defa4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jr1g6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlb8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fpkd")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k12gj"]
-radius = 64.0
+radius = 23.0
 
 [node name="Enemy" type="Node2D" unique_id=108608531]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1461385682]
+script = ExtResource("1_67neu")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1026001430]
-texture = ExtResource("1_d7j71")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1322157755]
+sprite_frames = SubResource("SpriteFrames_nxxhf")
+animation = &"idle"
+frame_progress = 0.81298804
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1882563533]
 shape = SubResource("CircleShape2D_k12gj")

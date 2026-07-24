@@ -2,10 +2,12 @@
 class_name Player extends Entity
 
 @export var weapon: Weapon
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
 
 var mouse_captured: bool = false
 var can_interact: bool = true # This variable can be used to disable player interaction when needed, such as during cutscenes, dialogues, pauses, etc.
-
+var is_mouse_form: bool = false # true after the Mouse Morph upgrade is applied
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -57,9 +59,22 @@ func _process(_delta: float) -> void:
 	elif Input.is_action_just_released("fire"):
 		if mouse_captured:
 			weapon.trigger_released(global_position, rotation)
-
+	_update_animation()
 
 func _physics_process(delta: float) -> void:
 	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down") if can_interact else Vector2.ZERO
 	move(input_dir, delta)
 	move_and_slide()
+
+func _update_animation() -> void:
+	var is_moving: bool = velocity.length() > 5.0 # small threshold to avoid flicker when stopping
+	var anim_name: String
+	if is_moving:
+		anim_name = "walk_mouse" if is_mouse_form else "walk_normal"
+	else:
+		anim_name = "idle_mouse" if is_mouse_form else "idle_normal"
+	if animated_sprite.animation != anim_name:
+		animated_sprite.play(anim_name)
+
+func set_mouse_form(enabled: bool) -> void: #mouse (animal)
+	is_mouse_form = enabled
