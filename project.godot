@@ -33,6 +33,10 @@ window/stretch/aspect="expand"
 
 movie_writer/movie_file="C:/Users/UBA/Videos/PRUEBA_1.avi"
 
+[gui]
+
+theme/custom_font="uid://cclikoqyalfo8"
+
 [input]
 
 move_up={
