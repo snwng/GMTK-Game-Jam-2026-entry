@@ -1,7 +1,74 @@
-[gd_scene format=3 uid="uid://bq3oqdklf2bdq"]
+[gd_scene format=4 uid="uid://bq3oqdklf2bdq"]
 
 [ext_resource type="Script" uid="uid://bbw1h5vl235ro" path="res://scripts/game_manager.gd" id="1_6312j"]
 [ext_resource type="PackedScene" uid="uid://n6jtbrkeuo3d" path="res://scenes/entities/props.tscn" id="2_3ulyp"]
+[ext_resource type="PackedScene" uid="uid://nl7bcs3w2xfu" path="res://scenes/entities/enemy.tscn" id="3_3ulyp"]
+[ext_resource type="Texture2D" uid="uid://vye6dbs2v4wk" path="res://assets/sprites/Lava_Tileset/Lava_V4_Bot.png" id="4_df41j"]
+[ext_resource type="Texture2D" uid="uid://c8bcmveaqd7uv" path="res://assets/sprites/Lava_Tileset/Lava_V4_BotLefttCorner.png" id="5_6u8e5"]
+[ext_resource type="Texture2D" uid="uid://btv4cvrwtgo3u" path="res://assets/sprites/Lava_Tileset/Lava_V4_BotRightCorner.png" id="6_84bhp"]
+[ext_resource type="Texture2D" uid="uid://byjp73oe2416t" path="res://assets/sprites/Lava_Tileset/Lava_V4_Center.png" id="7_jtcbb"]
+[ext_resource type="Texture2D" uid="uid://dntslngrq84qv" path="res://assets/sprites/Lava_Tileset/Lava_V4_Left.png" id="8_x7kll"]
+[ext_resource type="Texture2D" uid="uid://b5tnk7lf6ht6m" path="res://assets/sprites/Lava_Tileset/Lava_V4_Right.png" id="9_3jqmn"]
+[ext_resource type="Texture2D" uid="uid://b8pa7x7p756sn" path="res://assets/sprites/Lava_Tileset/Lava_V4_Top.png" id="10_o6frn"]
+[ext_resource type="Texture2D" uid="uid://dwee86i5p11lo" path="res://assets/sprites/Lava_Tileset/Lava_V4_TopLeftCorner.png" id="11_pkib5"]
+[ext_resource type="Texture2D" uid="uid://coucv6jqp5xt4" path="res://assets/sprites/Lava_Tileset/Lava_V4_TopRightCorner.png" id="12_efd43"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nxfq7"]
+texture = ExtResource("4_df41j")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_deywp"]
+texture = ExtResource("5_6u8e5")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r8nyi"]
+texture = ExtResource("6_84bhp")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0rl3"]
+texture = ExtResource("7_jtcbb")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_irvof"]
+texture = ExtResource("8_x7kll")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wn3jb"]
+texture = ExtResource("9_3jqmn")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eyj4g"]
+texture = ExtResource("10_o6frn")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fuee"]
+texture = ExtResource("11_pkib5")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v351g"]
+texture = ExtResource("12_efd43")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_w01f4"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_nxfq7")
+sources/1 = SubResource("TileSetAtlasSource_deywp")
+sources/2 = SubResource("TileSetAtlasSource_r8nyi")
+sources/3 = SubResource("TileSetAtlasSource_v0rl3")
+sources/4 = SubResource("TileSetAtlasSource_irvof")
+sources/5 = SubResource("TileSetAtlasSource_wn3jb")
+sources/6 = SubResource("TileSetAtlasSource_eyj4g")
+sources/7 = SubResource("TileSetAtlasSource_2fuee")
+sources/8 = SubResource("TileSetAtlasSource_v351g")
 
 [node name="MainScene" type="Node" unique_id=347612624]
 script = ExtResource("1_6312j")
@@ -17,8 +84,11 @@ position = Vector2(-401, 108)
 [node name="Props3" parent="World2D" unique_id=2026549445 instance=ExtResource("2_3ulyp")]
 position = Vector2(168, -139)
 
-[node name="UI" type="Control" parent="." unique_id=1270152534]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Enemy" parent="World2D" unique_id=108608531 instance=ExtResource("3_3ulyp")]
+position = Vector2(-68, -76)
+
+[node name="Lava_test" type="TileMapLayer" parent="World2D" unique_id=509724010]
+tile_map_data = PackedByteArray("AAD//wEAAwAAAAAAAAABAAEAAwAAAAAAAAAAAAEAAwAAAAAAAAD+/wEAAwAAAAAAAAD9/wEAAwAAAAAAAAACAAEABQAAAAAAAAACAAAACAAAAAAAAAD8/wAABwAAAAAAAAD8/wEABAAAAAAAAAD9/wAABgAAAAAAAAD+/wAABgAAAAAAAAD//wAABgAAAAAAAAAAAAAABgAAAAAAAAABAAAABgAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD8/wIAAQAAAAAAAAACAAIAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_w01f4")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1049719307]

@@ -67,3 +67,13 @@ func change_UI_scene(path: String, delete := true) -> void:
 	var instance: Node = scene_resource.instantiate()
 	ui.add_child(instance)
 	current_UI_scene = instance
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	# TEMPORARY: press U to test the upgrade screen. Remove this later
+	# once the real "all enemies defeated" trigger is hooked up.
+	if event.is_action_pressed("test_upgrade"):
+		show_upgrade_screen()
+
+func show_upgrade_screen() -> void:
+	change_UI_scene("res://scenes/ui/upgrades_store.tscn")

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cwmjq33uqqddv"]
+
+[ext_resource type="Script" uid="uid://b1ohgvlucphbw" path="res://scripts/axe.gd" id="1_725vr"]
+[ext_resource type="Texture2D" uid="uid://bmnnmwhb8r4k7" path="res://assets/sprites/Axe.png" id="1_odgf8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nxxhf"]
+radius = 38.078865
+
+[node name="Axe" type="Node2D" unique_id=1088453435]
+script = ExtResource("1_725vr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=167218586]
+texture = ExtResource("1_odgf8")
+
+[node name="HitArea" type="Area2D" parent="." unique_id=671205344]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea" unique_id=105132050]
+shape = SubResource("CircleShape2D_nxxhf")
