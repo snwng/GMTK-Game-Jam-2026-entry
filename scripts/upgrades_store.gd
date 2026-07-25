@@ -116,9 +116,10 @@ func _apply_super_bomb(player: Player) -> void:
 	player.enable_super_bomb()
 
 func _close() -> void:
+	get_tree().paused = false
 	Global.game_manager.close_scene(self)
 	Global.game_manager.current_UI_scene = null
-	
+	Global.game_manager.wave_manager.start_next_wave()	
 	
 func locate_buttons():
 	# Screen setup

@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://bq3oqdklf2bdq"]
 
 [ext_resource type="Script" uid="uid://bbw1h5vl235ro" path="res://scripts/game_manager.gd" id="1_6312j"]
-[ext_resource type="PackedScene" uid="uid://n6jtbrkeuo3d" path="res://scenes/entities/props.tscn" id="2_3ulyp"]
 [ext_resource type="PackedScene" uid="uid://nl7bcs3w2xfu" path="res://scenes/entities/enemy.tscn" id="3_3ulyp"]
 [ext_resource type="Texture2D" uid="uid://vye6dbs2v4wk" path="res://assets/sprites/Lava_Tileset/Lava_V4_Bot.png" id="4_df41j"]
 [ext_resource type="Texture2D" uid="uid://c8bcmveaqd7uv" path="res://assets/sprites/Lava_Tileset/Lava_V4_BotLefttCorner.png" id="5_6u8e5"]
@@ -11,16 +10,18 @@
 [ext_resource type="Texture2D" uid="uid://b5tnk7lf6ht6m" path="res://assets/sprites/Lava_Tileset/Lava_V4_Right.png" id="9_3jqmn"]
 [ext_resource type="Texture2D" uid="uid://b8pa7x7p756sn" path="res://assets/sprites/Lava_Tileset/Lava_V4_Top.png" id="10_o6frn"]
 [ext_resource type="Texture2D" uid="uid://dwee86i5p11lo" path="res://assets/sprites/Lava_Tileset/Lava_V4_TopLeftCorner.png" id="11_pkib5"]
-[ext_resource type="Texture2D" uid="uid://b7u038xaf4pob" path="res://assets/sprites/Props/Rocks/BigRock_1.png" id="12_84bhp"]
 [ext_resource type="Texture2D" uid="uid://coucv6jqp5xt4" path="res://assets/sprites/Lava_Tileset/Lava_V4_TopRightCorner.png" id="12_efd43"]
-[ext_resource type="Texture2D" uid="uid://cao4m7tmtoiyd" path="res://assets/sprites/Props/Rocks/SmallRock_1.png" id="13_jtcbb"]
+[ext_resource type="PackedScene" uid="uid://b43l1gluolxj1" path="res://scenes/entities/witch.tscn" id="13_efd43"]
 [ext_resource type="PackedScene" uid="uid://bnjcm4tqebbwl" path="res://scenes/entities/rock_1.tscn" id="15_3jqmn"]
 [ext_resource type="PackedScene" uid="uid://cglarhmsmqb2r" path="res://scenes/entities/rock_2.tscn" id="16_o6frn"]
 [ext_resource type="PackedScene" uid="uid://kwm58ms7btg" path="res://scenes/entities/rock_3.tscn" id="17_pkib5"]
+[ext_resource type="PackedScene" uid="uid://bl5ntjcxnpvqf" path="res://scenes/levels/Level1.tscn" id="18_deywp"]
+[ext_resource type="PackedScene" uid="uid://cbvcpepxgh77r" path="res://scenes/entities/enemy_golem.tscn" id="18_nxfq7"]
 [ext_resource type="PackedScene" uid="uid://crt87svnjwlm" path="res://scenes/entities/barrel.tscn" id="18_o6frn"]
 [ext_resource type="PackedScene" uid="uid://buohd4s570g42" path="res://scenes/levels/screenshake_checkbutton.tscn" id="19_pkib5"]
 [ext_resource type="Texture2D" uid="uid://ct8l28b6p2euk" path="res://assets/sprites/super_bomb_sprite.png" id="20_nxfq7"]
 [ext_resource type="Script" uid="uid://cbfma1m5361bu" path="res://scripts/bombUI.gd" id="21_deywp"]
+[ext_resource type="Script" uid="uid://ck833whbljk61" path="res://scripts/wave_manager.gd" id="21_nxfq7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nxfq7"]
 texture = ExtResource("4_df41j")
@@ -79,29 +80,113 @@ sources/6 = SubResource("TileSetAtlasSource_eyj4g")
 sources/7 = SubResource("TileSetAtlasSource_2fuee")
 sources/8 = SubResource("TileSetAtlasSource_v351g")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxxhf"]
+size = Vector2(16.000015, 5332)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_deywp"]
+size = Vector2(1093, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irvof"]
+size = Vector2(1030.5, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8nyi"]
+size = Vector2(1015.25, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0rl3"]
+size = Vector2(1048.25, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wn3jb"]
+size = Vector2(774, 409)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_avmow"]
+radius = 45.000015
+height = 217.99997
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyj4g"]
+radius = 30.0
+height = 96.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2fuee"]
+radius = 30.0
+height = 68.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v351g"]
+radius = 19.0
+height = 38.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ct0jg"]
+radius = 11.0
+height = 22.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3h10a"]
+radius = 26.0
+height = 52.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agd1n"]
+radius = 53.0
+height = 108.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q38kr"]
+radius = 14.0
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ngcf"]
+radius = 28.0
+height = 60.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2i4f"]
+radius = 28.0
+height = 100.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ofrv"]
+radius = 28.0
+height = 100.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ma2cu"]
+radius = 17.0
+height = 48.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uof65"]
+radius = 34.0
+height = 68.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j6j5q"]
+radius = 13.0
+height = 26.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_crguu"]
+radius = 29.0
+height = 58.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cjtiw"]
+radius = 57.0
+height = 114.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_irx0q"]
+radius = 21.0
+height = 42.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_deywp"]
+radius = 27.0
+height = 58.0
+
 [node name="MainScene" type="Node" unique_id=347612624]
 script = ExtResource("1_6312j")
+
+[node name="Level1" parent="." unique_id=572362904 instance=ExtResource("18_deywp")]
 
 [node name="World2D" type="Node2D" parent="." unique_id=1389256083]
 
 [node name="Lava_test" type="TileMapLayer" parent="World2D" unique_id=509724010]
+position = Vector2(301, 205)
 tile_map_data = PackedByteArray("AAD//wEAAwAAAAAAAAABAAEAAwAAAAAAAAAAAAEAAwAAAAAAAAD+/wEAAwAAAAAAAAD9/wEAAwAAAAAAAAACAAEABQAAAAAAAAACAAAACAAAAAAAAAD8/wAABwAAAAAAAAD8/wEABAAAAAAAAAD9/wAABgAAAAAAAAD+/wAABgAAAAAAAAD//wAABgAAAAAAAAAAAAAABgAAAAAAAAABAAAABgAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD8/wIAAQAAAAAAAAACAAIAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_w01f4")
 
-[node name="Props" parent="World2D" unique_id=1784190781 instance=ExtResource("2_3ulyp")]
-position = Vector2(-393, -160)
-rock_texture = ExtResource("12_84bhp")
-
-[node name="Props2" parent="World2D" unique_id=1117183916 instance=ExtResource("2_3ulyp")]
-position = Vector2(-401, 108)
-rock_texture = ExtResource("12_84bhp")
-
-[node name="Props3" parent="World2D" unique_id=2026549445 instance=ExtResource("2_3ulyp")]
-position = Vector2(168, -139)
-rock_texture = ExtResource("13_jtcbb")
-
 [node name="Enemy" parent="World2D" unique_id=108608531 instance=ExtResource("3_3ulyp")]
 position = Vector2(-68, -76)
+
+[node name="Witch" parent="World2D" unique_id=495076532 instance=ExtResource("13_efd43")]
+position = Vector2(-184, -15)
 
 [node name="Rocks" type="Node" parent="World2D" unique_id=1282416192]
 
@@ -117,6 +202,9 @@ position = Vector2(-72, -29)
 
 [node name="Barrel" parent="World2D/Barrels" unique_id=1198396894 instance=ExtResource("18_o6frn")]
 position = Vector2(126, -12)
+
+[node name="Enemy2" parent="World2D" unique_id=375319499 instance=ExtResource("18_nxfq7")]
+position = Vector2(-105, -80)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1049719307]
 
@@ -139,3 +227,136 @@ offset_right = 62.0
 offset_bottom = 99.0
 texture = ExtResource("20_nxfq7")
 script = ExtResource("21_deywp")
+
+[node name="WaveManager" type="Node" parent="." unique_id=1932378893]
+script = ExtResource("21_nxfq7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=93847986]
+position = Vector2(-558, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1869888941]
+position = Vector2(-901.5, 32)
+shape = SubResource("RectangleShape2D_nxxhf")
+
+[node name="Lava" type="StaticBody2D" parent="." unique_id=1352960641]
+position = Vector2(-157, 141)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lava" unique_id=2090865374]
+position = Vector2(-1269, -3)
+shape = SubResource("RectangleShape2D_deywp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Lava" unique_id=505044730]
+position = Vector2(-136.25, -3)
+shape = SubResource("RectangleShape2D_irvof")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Lava" unique_id=510622102]
+position = Vector2(960.375, -3)
+shape = SubResource("RectangleShape2D_r8nyi")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Lava" unique_id=144488371]
+position = Vector2(2062.875, -3)
+shape = SubResource("RectangleShape2D_v0rl3")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Lava" unique_id=567192893]
+position = Vector2(3184, -3)
+shape = SubResource("RectangleShape2D_v0rl3")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Lava" unique_id=1894101124]
+position = Vector2(2317, 715.5)
+shape = SubResource("RectangleShape2D_wn3jb")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Lava" unique_id=1053272634]
+position = Vector2(444, 112)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_avmow")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Lava" unique_id=1882237464]
+position = Vector2(-1081, -529)
+shape = SubResource("CapsuleShape2D_eyj4g")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Lava" unique_id=1717144726]
+position = Vector2(215, -791)
+shape = SubResource("CapsuleShape2D_2fuee")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Lava" unique_id=1362629058]
+position = Vector2(-328, -1003)
+shape = SubResource("CapsuleShape2D_v351g")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Lava" unique_id=1406843968]
+position = Vector2(28, -415)
+shape = SubResource("CapsuleShape2D_ct0jg")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Lava" unique_id=1917657526]
+position = Vector2(1406, -893)
+shape = SubResource("CapsuleShape2D_3h10a")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Lava" unique_id=1469876293]
+position = Vector2(1733, -508)
+shape = SubResource("CapsuleShape2D_agd1n")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Lava" unique_id=772288620]
+position = Vector2(2123, -351)
+shape = SubResource("CapsuleShape2D_q38kr")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Lava" unique_id=344086312]
+position = Vector2(2913, -998)
+shape = SubResource("CapsuleShape2D_6ngcf")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Lava" unique_id=230174649]
+position = Vector2(3031, 479)
+shape = SubResource("CapsuleShape2D_u2i4f")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Lava" unique_id=1911587375]
+position = Vector2(2501, 1157)
+shape = SubResource("CapsuleShape2D_0ofrv")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="Lava" unique_id=997986428]
+position = Vector2(1080, 820)
+shape = SubResource("CapsuleShape2D_ma2cu")
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="Lava" unique_id=386026448]
+position = Vector2(449, 870)
+shape = SubResource("CapsuleShape2D_uof65")
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="Lava" unique_id=1076883376]
+position = Vector2(557, 449)
+shape = SubResource("CapsuleShape2D_j6j5q")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="Lava" unique_id=2047874564]
+position = Vector2(-33, 612)
+shape = SubResource("CapsuleShape2D_crguu")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="Lava" unique_id=523346977]
+position = Vector2(-395, 1065)
+shape = SubResource("CapsuleShape2D_cjtiw")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="Lava" unique_id=373240592]
+position = Vector2(-1098, 782)
+shape = SubResource("CapsuleShape2D_irx0q")
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="Lava" unique_id=916732706]
+position = Vector2(2123, 291)
+shape = SubResource("CapsuleShape2D_deywp")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=2118641690]
+position = Vector2(3808, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=714040703]
+position = Vector2(-901.5, 32)
+shape = SubResource("RectangleShape2D_nxxhf")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=2043589918]
+position = Vector2(579, -54)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=2525612]
+position = Vector2(-1065, -272)
+shape = SubResource("RectangleShape2D_nxxhf")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1558395149]
+position = Vector2(579, 2362)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1916044630]
+position = Vector2(-1065, -272)
+shape = SubResource("RectangleShape2D_nxxhf")

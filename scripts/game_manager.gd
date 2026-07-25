@@ -5,6 +5,7 @@ class_name GameManager extends Node
 @onready var ui: CanvasLayer = $UI
 @onready var health_label: Label = $UI/Health
 @onready var update_timer: Timer = $UI/Timer
+@onready var wave_manager: Node = $WaveManager
 
 var player: Player = null
 var current_2D_scene: Node = null
@@ -86,12 +87,17 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func show_upgrade_screen() -> void:
 	change_UI_scene("res://scenes/ui/upgrades_store.tscn")
-	
+	# Allow the upgrade screen to keep working while everything else freezes
+	current_UI_scene.process_mode = Node.PROCESS_MODE_ALWAYS
+	get_tree().paused = true	
 	
 	
 func _update_health_display() -> void:
 	if player != null:
-		health_label.text = "HP: " + str(player.health)
-
+		var total_seconds: int = player.health
+		var minutes: int = total_seconds / 60
+		var seconds: int = total_seconds % 60
+		health_label.text = "HP: %02d:%02d" % [minutes, seconds]
+		
 func _on_timer_timeout() -> void:
 	_update_health_display()

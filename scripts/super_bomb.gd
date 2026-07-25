@@ -7,7 +7,7 @@ extends Node2D
 const EXPLOSION_FX: PackedScene = preload("res://scenes/particles/explosion_particles.tscn")
 
 @export var fuse_time: float = 2.50
-@export var explosion_damage: int = 50
+@export var explosion_damage: int = 100
 
 @onready var fuse_timer: Timer = $Timer
 @onready var explosion_area: Area2D = $ExplosionArea
@@ -23,6 +23,9 @@ func _explode() -> void:
 	Global.fx_manager.spawn_particles(EXPLOSION_FX, global_position)
 	explosion_area.monitoring = true
 	await get_tree().physics_frame
+	await get_tree().physics_frame # extra frame: give the physics engine time to register the area
+	var bodies: Array = explosion_area.get_overlapping_bodies()
+	print("Bomb overlapping bodies: ", bodies)
 	for body in explosion_area.get_overlapping_bodies():
 		if body is Entity:
 			body.take_damage(explosion_damage)

@@ -8,15 +8,19 @@ class_name Entity extends CharacterBody2D
 
 var health: int = 100
 
+const FLASH_COLOR: Color = Color(1, 0.3, 0.3) # reddish tint
+const FLASH_DURATION: float = 0.15
 
-func take_damage(amount: int) -> void:
+func take_damage(amount: int, flash: bool = true) -> void:
 	health -= amount
 	health = max(health, 0)
+	if flash:
+		_flash_red()
 
 
 func heal(amount: int) -> void:
 	health += amount
-	health = min(health, MAX_HEALTH)
+	#health = min(health, MAX_HEALTH)
 
 
 func move(direction: Vector2, delta: float) -> void:
@@ -26,3 +30,17 @@ func move(direction: Vector2, delta: float) -> void:
 
 func is_alive() -> bool:
 	return health > 0
+
+func _flash_red() -> void:
+	var sprite: CanvasItem = _get_visual_node()
+	if not sprite:
+		return
+	var tween: Tween = create_tween()
+	tween.tween_property(sprite, "modulate", FLASH_COLOR, 0.0) # instant tint
+	tween.tween_property(sprite, "modulate", Color.WHITE, FLASH_DURATION)
+
+func _get_visual_node() -> CanvasItem:
+	# Both Player and Enemy use an AnimatedSprite2D named "AnimatedSprite2D"
+	if has_node("AnimatedSprite2D"):
+		return $AnimatedSprite2D
+	return null

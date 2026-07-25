@@ -5,7 +5,7 @@ extends Node2D
 
 @export var radius: float = 60.0
 @export var rotation_speed: float = 3.0 # radians per second
-@export var damage: int = 15
+@export var damage: int = 50
 
 @onready var hit_area: Area2D = $HitArea
 
@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 	position = Vector2.RIGHT.rotated(angle) * radius
 
 func _on_body_entered(body: Node2D) -> void:
+	print("Axe touched: ", body)
 	if body == get_parent():
 		return # don't hit the player itself
 	if hit_this_lap.has(body):

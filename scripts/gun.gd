@@ -26,7 +26,7 @@ func _process(_delta: float) -> void:
 
 func orient_weapon() -> void:
 	var angle: float = fposmod(rotation, TAU)
-	print("Angle: ", angle)
+	#print("Angle: ", angle)
 	if angle > PI / 2 and angle < 3 * PI / 2:
 		$Sprite2D.flip_v = true
 	else:
