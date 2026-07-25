@@ -3,16 +3,25 @@ class_name GameManager extends Node
 
 @onready var world2D: Node2D = $World2D
 @onready var ui: CanvasLayer = $UI
+@onready var health_label: Label = $UI/Health
+@onready var update_timer: Timer = $UI/Timer
 
 var player: Player = null
 var current_2D_scene: Node = null
 var current_UI_scene: Node = null
 
 
+
 func _ready() -> void:
 	# Set the global game controller reference
 	Global.game_manager = self
+	
 	load_player()
+	
+	_update_health_display()
+	
+	# Connect the Timer's timeout signal to our update function via code
+	update_timer.timeout.connect(_on_timer_timeout)
 
 
 func get_player() -> Node:
@@ -77,3 +86,12 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func show_upgrade_screen() -> void:
 	change_UI_scene("res://scenes/ui/upgrades_store.tscn")
+	
+	
+	
+func _update_health_display() -> void:
+	if player != null:
+		health_label.text = "HP: " + str(player.health)
+
+func _on_timer_timeout() -> void:
+	_update_health_display()

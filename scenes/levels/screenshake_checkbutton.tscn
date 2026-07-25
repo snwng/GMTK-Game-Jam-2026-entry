@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://buohd4s570g42"]
+
+[ext_resource type="Script" uid="uid://ch1hhy2uf5o2a" path="res://scripts/Check_button_screenshake.gd" id="1_h2tl2"]
+
+[node name="Screenshake" type="CheckButton" unique_id=88986131]
+offset_top = 7.0
+offset_right = 44.0
+offset_bottom = 31.0
+script = ExtResource("1_h2tl2")

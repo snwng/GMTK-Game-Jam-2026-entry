@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://kwm58ms7btg"]
+
+[ext_resource type="Texture2D" uid="uid://cao4m7tmtoiyd" path="res://assets/sprites/Props/Rocks/SmallRock_1.png" id="1_71l5y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x2gbe"]
+radius = 6.0
+
+[node name="Rock_3" type="Node2D" unique_id=1784190781]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=437969150]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1454432544]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_x2gbe")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1912669103]
+texture = ExtResource("1_71l5y")

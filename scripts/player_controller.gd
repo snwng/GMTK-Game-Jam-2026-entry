@@ -11,9 +11,17 @@ var mouse_captured: bool = false
 var can_interact: bool = true # This variable can be used to disable player interaction when needed, such as during cutscenes, dialogues, pauses, etc.
 var is_mouse_form: bool = false # true after the Mouse Morph upgrade is applied
 
+# Super Bomb ability (unlocked via upgrade, thrown with right click)
+var has_super_bomb: bool = false
+var bomb_ready: bool = true
+const BOMB_COOLDOWN: float = 10.0
+const BOMB_SCENE_PATH: String = "res://scenes/Super_bomb.tscn"
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotate_weapon(event.position)
+	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
+		_throw_bomb()	
 
 
 func capture_mouse() -> void:
@@ -78,11 +86,33 @@ func _update_animation() -> void:
 	var is_moving: bool = velocity.length() > 5.0 # small threshold to avoid flicker when stopping
 	var anim_name: String
 	if is_moving:
-		anim_name = "walk_mouse" if is_mouse_form else "walk_normal"
+		anim_name = "walk"
+		# Flip sprite based on movement direction along the X axis
+		if velocity.x < 0:
+			animated_sprite.flip_h = true  # Facing left
+		elif velocity.x > 0:
+			animated_sprite.flip_h = false # Facing right
 	else:
-		anim_name = "idle_mouse" if is_mouse_form else "idle_normal"
+		anim_name = "idle"
 	if animated_sprite.animation != anim_name:
 		animated_sprite.play(anim_name)
 
 func set_mouse_form(enabled: bool) -> void: #mouse (animal)
 	is_mouse_form = enabled
+
+
+
+func enable_super_bomb() -> void:
+	has_super_bomb = true
+
+func _throw_bomb() -> void:
+	if not has_super_bomb or not bomb_ready or not can_interact:
+		return
+	bomb_ready = false
+	var bomb_scene: PackedScene = load(BOMB_SCENE_PATH)
+	var bomb: Node2D = bomb_scene.instantiate()
+	Global.game_manager.add_2D_node(bomb)
+	bomb.global_position = global_position
+	# Wait 10 seconds cooldown
+	await get_tree().create_timer(BOMB_COOLDOWN).timeout
+	bomb_ready = true

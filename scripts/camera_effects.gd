@@ -34,6 +34,8 @@ func screen_shake(
 	intensity: float = default_screen_shake_intensity,
 	duration: float = default_screen_shake_duration,
 ) -> void:
+	if not Global.screen_shake_enabled:
+		return
 	randomize()
 	noise.seed = randi()
 

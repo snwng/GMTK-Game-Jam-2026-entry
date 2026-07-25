@@ -11,7 +11,16 @@
 [ext_resource type="Texture2D" uid="uid://b5tnk7lf6ht6m" path="res://assets/sprites/Lava_Tileset/Lava_V4_Right.png" id="9_3jqmn"]
 [ext_resource type="Texture2D" uid="uid://b8pa7x7p756sn" path="res://assets/sprites/Lava_Tileset/Lava_V4_Top.png" id="10_o6frn"]
 [ext_resource type="Texture2D" uid="uid://dwee86i5p11lo" path="res://assets/sprites/Lava_Tileset/Lava_V4_TopLeftCorner.png" id="11_pkib5"]
+[ext_resource type="Texture2D" uid="uid://b7u038xaf4pob" path="res://assets/sprites/Props/Rocks/BigRock_1.png" id="12_84bhp"]
 [ext_resource type="Texture2D" uid="uid://coucv6jqp5xt4" path="res://assets/sprites/Lava_Tileset/Lava_V4_TopRightCorner.png" id="12_efd43"]
+[ext_resource type="Texture2D" uid="uid://cao4m7tmtoiyd" path="res://assets/sprites/Props/Rocks/SmallRock_1.png" id="13_jtcbb"]
+[ext_resource type="PackedScene" uid="uid://bnjcm4tqebbwl" path="res://scenes/entities/rock_1.tscn" id="15_3jqmn"]
+[ext_resource type="PackedScene" uid="uid://cglarhmsmqb2r" path="res://scenes/entities/rock_2.tscn" id="16_o6frn"]
+[ext_resource type="PackedScene" uid="uid://kwm58ms7btg" path="res://scenes/entities/rock_3.tscn" id="17_pkib5"]
+[ext_resource type="PackedScene" uid="uid://crt87svnjwlm" path="res://scenes/entities/barrel.tscn" id="18_o6frn"]
+[ext_resource type="PackedScene" uid="uid://buohd4s570g42" path="res://scenes/levels/screenshake_checkbutton.tscn" id="19_pkib5"]
+[ext_resource type="Texture2D" uid="uid://ct8l28b6p2euk" path="res://assets/sprites/super_bomb_sprite.png" id="20_nxfq7"]
+[ext_resource type="Script" uid="uid://cbfma1m5361bu" path="res://scripts/bombUI.gd" id="21_deywp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nxfq7"]
 texture = ExtResource("4_df41j")
@@ -81,14 +90,52 @@ tile_set = SubResource("TileSet_w01f4")
 
 [node name="Props" parent="World2D" unique_id=1784190781 instance=ExtResource("2_3ulyp")]
 position = Vector2(-393, -160)
+rock_texture = ExtResource("12_84bhp")
 
 [node name="Props2" parent="World2D" unique_id=1117183916 instance=ExtResource("2_3ulyp")]
 position = Vector2(-401, 108)
+rock_texture = ExtResource("12_84bhp")
 
 [node name="Props3" parent="World2D" unique_id=2026549445 instance=ExtResource("2_3ulyp")]
 position = Vector2(168, -139)
+rock_texture = ExtResource("13_jtcbb")
 
 [node name="Enemy" parent="World2D" unique_id=108608531 instance=ExtResource("3_3ulyp")]
 position = Vector2(-68, -76)
 
+[node name="Rocks" type="Node" parent="World2D" unique_id=1282416192]
+
+[node name="Rock_1" parent="World2D/Rocks" unique_id=474157329 instance=ExtResource("15_3jqmn")]
+
+[node name="Rock_2" parent="World2D/Rocks" unique_id=972157152 instance=ExtResource("16_o6frn")]
+position = Vector2(54, -29)
+
+[node name="Rock_3" parent="World2D/Rocks" unique_id=1650950129 instance=ExtResource("17_pkib5")]
+position = Vector2(-72, -29)
+
+[node name="Barrels" type="Node" parent="World2D" unique_id=1765160030]
+
+[node name="Barrel" parent="World2D/Barrels" unique_id=1198396894 instance=ExtResource("18_o6frn")]
+position = Vector2(126, -12)
+
 [node name="UI" type="CanvasLayer" parent="." unique_id=1049719307]
+
+[node name="Health" type="Label" parent="UI" unique_id=729537758]
+offset_left = 32.0
+offset_top = 35.0
+offset_right = 72.0
+offset_bottom = 58.0
+text = "00"
+
+[node name="Timer" type="Timer" parent="UI" unique_id=545948171]
+autostart = true
+
+[node name="Screenshake" parent="UI" unique_id=88986131 instance=ExtResource("19_pkib5")]
+
+[node name="TextureRect_bomb" type="TextureRect" parent="UI" unique_id=222150817]
+offset_left = 22.0
+offset_top = 59.0
+offset_right = 62.0
+offset_bottom = 99.0
+texture = ExtResource("20_nxfq7")
+script = ExtResource("21_deywp")

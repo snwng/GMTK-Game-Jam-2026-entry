@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ddohyeigc3qp5"]
+
+[ext_resource type="Script" uid="uid://gjqxa884oyt7" path="res://scripts/super_bomb.gd" id="1_jnkda"]
+[ext_resource type="Texture2D" uid="uid://ct8l28b6p2euk" path="res://assets/sprites/super_bomb_sprite.png" id="2_ajpub"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nxxhf"]
+radius = 131.13733
+
+[node name="super_bomb" type="Node2D" unique_id=1088453435]
+script = ExtResource("1_jnkda")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=167218586]
+texture = ExtResource("2_ajpub")
+
+[node name="ExplosionArea" type="Area2D" parent="." unique_id=671205344]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionArea" unique_id=105132050]
+shape = SubResource("CircleShape2D_nxxhf")
+
+[node name="Timer" type="Timer" parent="." unique_id=321919303]

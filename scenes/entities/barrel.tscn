@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://crt87svnjwlm"]
+
+[ext_resource type="Texture2D" uid="uid://bigrxfp2pnjg" path="res://assets/sprites/Barrel_ornament.png" id="1_lfki4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kl45m"]
+size = Vector2(20, 25)
+
+[node name="Barrel" type="Node2D" unique_id=1784190781]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=437969150]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1454432544]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_kl45m")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1912669103]
+texture = ExtResource("1_lfki4")

@@ -16,6 +16,7 @@ func _ready() -> void:
 	hitbox.body_entered.connect(_on_collision)
 	timer.timeout.connect(_on_timeout)
 	direction = (Transform2D(transform.x, transform.y, Vector2.ZERO) * Vector2.RIGHT).normalized() # Get the direction the bullet is facing
+	scale *= Global.bullet_scale_multiplier
 
 func _physics_process(delta: float) -> void:
 	position += direction * SPEED * delta

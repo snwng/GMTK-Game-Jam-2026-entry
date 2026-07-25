@@ -1,17 +1,19 @@
 [gd_scene format=3 uid="uid://n6jtbrkeuo3d"]
 
 [ext_resource type="Texture2D" uid="uid://qnehj38t5cla" path="res://icon.svg" id="1_h1ayr"]
+[ext_resource type="Script" uid="uid://pm17c1txe7ho" path="res://scripts/rocks.gd" id="1_it7s7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2gbe"]
-size = Vector2(125, 130)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8apbr"]
+size = Vector2(126, 123)
 
 [node name="Props" type="Node2D" unique_id=1784190781]
+script = ExtResource("1_it7s7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=437969150]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1454432544]
-position = Vector2(-0.5, -1)
-shape = SubResource("RectangleShape2D_x2gbe")
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_8apbr")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1912669103]
 texture = ExtResource("1_h1ayr")

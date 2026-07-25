@@ -7,6 +7,9 @@ var fx_manager: FX_Manager
 var language: int = 1
 
 var damage_multiplier: float = 1.0 #for upgrades
+var bullet_scale_multiplier: float = 1.0 #for upgrades
+
+var screen_shake_enabled: bool = true
 
 func _ready() -> void:
 	pass

@@ -12,25 +12,28 @@ grow_vertical = 2
 script = ExtResource("1_21qia")
 
 [node name="Button1" type="Button" parent="." unique_id=704916424]
-custom_minimum_size = Vector2(150, 80)
+custom_minimum_size = Vector2(50, 260)
 layout_mode = 0
 offset_left = 12.0
-offset_top = 351.0
+offset_top = 250.0
 offset_right = 212.0
-offset_bottom = 431.0
+offset_bottom = 330.0
+autowrap_mode = 3
 
 [node name="Button2" type="Button" parent="." unique_id=56573519]
-custom_minimum_size = Vector2(150, 80)
+custom_minimum_size = Vector2(50, 260)
 layout_mode = 0
 offset_left = 412.0
-offset_top = 351.0
+offset_top = 250.0
 offset_right = 612.0
-offset_bottom = 431.0
+offset_bottom = 330.0
+autowrap_mode = 3
 
 [node name="Button3" type="Button" parent="." unique_id=1100038192]
-custom_minimum_size = Vector2(150, 80)
+custom_minimum_size = Vector2(50, 260)
 layout_mode = 0
 offset_left = 812.0
-offset_top = 351.0
+offset_top = 250.0
 offset_right = 1012.0
-offset_bottom = 431.0
+offset_bottom = 330.0
+autowrap_mode = 3

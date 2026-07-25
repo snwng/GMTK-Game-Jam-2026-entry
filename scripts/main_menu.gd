@@ -13,20 +13,6 @@ func _on_LabelBlinkTimer_timeout() -> void:
 	# label blinks
 	blinking_label.visible = not blinking_label.visible
 
-func _on_button_English_pressed() -> void: #English
-	Global.language = 1
-	$Press_sound.play()
-	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://scenes/levels/main_scene.tscn")
-
-
-func _on_button_2_pressed() -> void: #Spanish
-	Global.language = 2
-	$Press_sound.play()
-	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://scenes/levels/main_scene.tscn")
-
-
 
 func _on_button_mouse_entered() -> void:
 	$Hover_sound.play()
@@ -36,3 +22,13 @@ func _on_credits_pressed() -> void:
 	$Press_sound.play()
 	await get_tree().create_timer(0.5).timeout
 	#get_tree().change_scene_to_file("")
+
+
+func _on_start_pressed() -> void:
+	$Press_sound.play()
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://scenes/levels/main_scene.tscn")
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()
