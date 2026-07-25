@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ubjklkrmn1yp" path="res://scripts/language_menu.gd" id="1_l3eag"]
 [ext_resource type="Texture2D" uid="uid://qnehj38t5cla" path="res://icon.svg" id="2_v18go"]
 [ext_resource type="Script" uid="uid://c8606cj34t43w" path="res://scripts/camera_effects.gd" id="3_v18go"]
+[ext_resource type="FontFile" uid="uid://cclikoqyalfo8" path="res://assets/fonts/yoster.ttf" id="3_ydtb5"]
 
 [node name="Language_menu" type="Node2D" unique_id=1878250518]
 script = ExtResource("1_l3eag")
@@ -17,6 +18,7 @@ offset_left = 529.0
 offset_top = 210.0
 offset_right = 605.0
 offset_bottom = 241.0
+theme_override_fonts/font = ExtResource("3_ydtb5")
 text = "ENGLISH"
 
 [node name="Button2" type="Button" parent="." unique_id=332537138]
@@ -24,6 +26,7 @@ offset_left = 529.0
 offset_top = 270.0
 offset_right = 609.0
 offset_bottom = 301.0
+theme_override_fonts/font = ExtResource("3_ydtb5")
 text = "ESPAÑOL"
 
 [node name="Label" type="Label" parent="." unique_id=622678011]
@@ -31,6 +34,7 @@ offset_left = 488.0
 offset_top = 145.0
 offset_right = 659.0
 offset_bottom = 194.0
+theme_override_fonts/font = ExtResource("3_ydtb5")
 text = "Choose your language
 Selecciona tu idioma"
 horizontal_alignment = 1
