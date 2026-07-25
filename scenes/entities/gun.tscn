@@ -9,7 +9,7 @@ script = ExtResource("1_p8dnu")
 projectile = ExtResource("2_rpk72")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1837520056]
-position = Vector2(26, 8)
+position = Vector2(24, 0)
 texture = ExtResource("3_5cik8")
 
 [node name="Timer" type="Timer" parent="." unique_id=740092070]

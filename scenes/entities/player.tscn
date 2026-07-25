@@ -85,10 +85,6 @@ animations = [{
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1476975616]
 script = ExtResource("1_08t41")
-VELOCITY = null
-ACCELERATION = null
-DECELERATION = null
-MAX_HEALTH = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1243909535]
 position = Vector2(-1, -2)

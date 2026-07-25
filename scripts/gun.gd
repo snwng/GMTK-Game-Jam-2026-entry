@@ -20,3 +20,14 @@ func trigger_pressed(origin: Vector2 = global_position, angle: float = rotation)
 		bullet.rotation = angle
 		Global.game_manager.add_2D_node(bullet)
 		timer.start()
+
+func _process(_delta: float) -> void:
+	orient_weapon()
+
+func orient_weapon() -> void:
+	var angle: float = fposmod(rotation, TAU)
+	print("Angle: ", angle)
+	if angle > PI / 2 and angle < 3 * PI / 2:
+		$Sprite2D.flip_v = true
+	else:
+		$Sprite2D.flip_v = false
