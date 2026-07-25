@@ -55,6 +55,7 @@ func _ready() -> void:
 	capture_mouse()
 	var gun: PackedScene = load("res://scenes/entities/gun.tscn")
 	set_weapon(gun.instantiate())
+	set_mouse_form(true)
 
 
 
@@ -96,6 +97,7 @@ func _update_animation() -> void:
 		anim_name = "idle"
 	if animated_sprite.animation != anim_name:
 		animated_sprite.play(anim_name)
+
 
 func set_mouse_form(enabled: bool) -> void: #mouse (animal)
 	is_mouse_form = enabled
