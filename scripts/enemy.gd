@@ -9,12 +9,12 @@ var goal: Entity
 var is_retreating: bool = false
 const RETREAT_DISTANCE: float = 5.0
 const RETREAT_SPEED: float = 100.0
-const ATTACK_ANIM_DURATION: float = 0.15 
+const ATTACK_ANIM_DURATION: float = 0.15
 
 var can_attack: bool = true
 
 func _init() -> void:
-	VELOCITY = 50.0
+	VELOCITY = 180.0
 
 func _ready() -> void:
 	self.visible = true
@@ -55,7 +55,7 @@ func _try_attack() -> void:
 	if global_position.distance_to(goal.global_position) <= attack_range:
 		$AnimatedSprite2D.play("attack")
 		goal.take_damage(attack_damage)
-		
+
 		# 80% de probabilidad (0.8) y comprobación de seguridad para evitar errores 'null'
 		if is_alive() and randf() <= 0.99 and has_node("AudioStreamPlayer2D") and is_instance_valid($AudioStreamPlayer2D):
 			$AudioStreamPlayer2D.pitch_scale = randf_range(0.85, 1.15)
@@ -64,11 +64,11 @@ func _try_attack() -> void:
 		can_attack = false
 		await $AnimatedSprite2D.animation_finished
 		await get_tree().create_timer(ATTACK_ANIM_DURATION).timeout
-		
+
 		# Verificación extra por si murió durante los 'await'
 		if is_alive():
 			$AnimatedSprite2D.play("idle")
-			
+
 		is_retreating = true
 		await get_tree().create_timer(RETREAT_DISTANCE / RETREAT_SPEED).timeout
 		is_retreating = false

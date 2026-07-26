@@ -12,7 +12,7 @@ var goal: Entity
 var is_retreating: bool = false
 const RETREAT_DISTANCE: float = 5.0
 const RETREAT_SPEED: float = 80.0
-const ATTACK_ANIM_DURATION: float = 0.15 
+const ATTACK_ANIM_DURATION: float = 0.15
 
 var can_attack: bool = true
 
@@ -21,7 +21,7 @@ var can_attack: bool = true
 
 
 func _init() -> void:
-	VELOCITY = 25.0
+	VELOCITY = 50.0
 	MAX_HEALTH = 350
 	health = MAX_HEALTH
 
@@ -63,14 +63,14 @@ func _physics_process(delta: float) -> void:
 func _try_attack() -> void:
 	if not can_attack or not goal:
 		return
-		
+
 	if global_position.distance_to(goal.global_position) <= attack_range:
 		can_attack = false
 		$AnimatedSprite2D.play("attack")
-		
+
 		# Aplica daño al jugador
 		goal.take_damage(attack_damage)
-		
+
 		# Suena siempre al pegar
 		if has_node("AudioStreamPlayer"):
 			$AudioStreamPlayer.pitch_scale = randf_range(0.8, 1.1)
@@ -79,7 +79,7 @@ func _try_attack() -> void:
 		await get_tree().create_timer(ATTACK_ANIM_DURATION).timeout
 		if is_alive():
 			$AnimatedSprite2D.play("idle")
-			
+
 		is_retreating = true
 		await get_tree().create_timer(RETREAT_DISTANCE / RETREAT_SPEED).timeout
 		is_retreating = false
@@ -96,7 +96,7 @@ func _try_attack() -> void:
 #var is_retreating: bool = false
 #const RETREAT_DISTANCE: float = 5.0
 #const RETREAT_SPEED: float = 80.0
-#const ATTACK_ANIM_DURATION: float = 0.15 
+#const ATTACK_ANIM_DURATION: float = 0.15
 #
 #var can_attack: bool = true
 #var damage_dealt_this_attack: bool = false

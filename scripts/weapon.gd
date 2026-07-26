@@ -2,7 +2,7 @@
 class_name Weapon extends Node2D
 
 @export var Projectile_Spawn_Offset: float = 50.0
-@export var cooldown: float = 0.5
+@export var cooldown: float = 0.25
 
 var can_fire: bool = true
 
