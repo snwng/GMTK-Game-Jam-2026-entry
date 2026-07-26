@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dhvop0ard0x0k"]
 
 [ext_resource type="Script" uid="uid://c3i8xhfyb6cyl" path="res://scripts/main_menu.gd" id="1_0ebjn"]
-[ext_resource type="Texture2D" uid="uid://qnehj38t5cla" path="res://icon.svg" id="2_ob46e"]
+[ext_resource type="Texture2D" uid="uid://cto3cqti4yplt" path="res://assets/sprites/Red/Red-idle-Sheet.png" id="2_wem23"]
 [ext_resource type="Script" uid="uid://c8606cj34t43w" path="res://scripts/camera_effects.gd" id="3_ob46e"]
 [ext_resource type="FontFile" uid="uid://cclikoqyalfo8" path="res://assets/fonts/yoster.ttf" id="3_wem23"]
 [ext_resource type="PackedScene" uid="uid://buohd4s570g42" path="res://scenes/levels/screenshake_checkbutton.tscn" id="4_uqeha"]
@@ -9,11 +9,13 @@
 [node name="Main_menu" type="Node2D" unique_id=1878250518]
 script = ExtResource("1_0ebjn")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1257118969]
+[node name="Background" type="Sprite2D" parent="." unique_id=702460871]
 modulate = Color(0, 0, 1, 1)
-position = Vector2(569.00006, 310.50003)
-scale = Vector2(10.1875, 5.8828125)
-texture = ExtResource("2_ob46e")
+
+[node name="Red" type="Sprite2D" parent="." unique_id=616203161]
+position = Vector2(1090, 534)
+texture = ExtResource("2_wem23")
+hframes = 6
 
 [node name="Start" type="Button" parent="." unique_id=1042379062]
 offset_left = 832.0
@@ -45,8 +47,7 @@ offset_top = 260.0
 offset_right = 962.0
 offset_bottom = 309.0
 theme_override_fonts/font = ExtResource("3_wem23")
-text = "Choose your language
-Selecciona tu idioma"
+text = "Name of the game"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -9,6 +9,7 @@
 script = ExtResource("1_l3eag")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1257118969]
+modulate = Color(0, 0, 0, 1)
 position = Vector2(569.00006, 310.50003)
 scale = Vector2(10.1875, 5.8828125)
 texture = ExtResource("2_v18go")
@@ -22,6 +23,7 @@ theme_override_fonts/font = ExtResource("3_ydtb5")
 text = "ENGLISH"
 
 [node name="Button2" type="Button" parent="." unique_id=332537138]
+visible = false
 offset_left = 529.0
 offset_top = 270.0
 offset_right = 609.0

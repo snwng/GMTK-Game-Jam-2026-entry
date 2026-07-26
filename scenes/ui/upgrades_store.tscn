@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bvrjddeld0jis"]
 
 [ext_resource type="Script" uid="uid://ciw2n47i1c7nv" path="res://scripts/upgrades_store.gd" id="1_21qia"]
+[ext_resource type="Texture2D" uid="uid://bipok34o6hqkk" path="res://assets/Card2.png" id="2_fdd1n"]
 
 [node name="Upgrades_store" type="Control" unique_id=668261765]
 layout_mode = 3
@@ -14,11 +15,18 @@ script = ExtResource("1_21qia")
 [node name="Button1" type="Button" parent="." unique_id=704916424]
 custom_minimum_size = Vector2(50, 260)
 layout_mode = 0
-offset_left = 12.0
-offset_top = 250.0
-offset_right = 212.0
-offset_bottom = 330.0
+offset_left = 10.0
+offset_top = 227.0
+offset_right = 209.0
+offset_bottom = 523.0
 autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Button1" unique_id=1704043299]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_fdd1n")
 
 [node name="Button2" type="Button" parent="." unique_id=56573519]
 custom_minimum_size = Vector2(50, 260)
@@ -29,6 +37,15 @@ offset_right = 612.0
 offset_bottom = 330.0
 autowrap_mode = 3
 
+[node name="TextureRect" type="TextureRect" parent="Button2" unique_id=1526232316]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -402.0
+offset_top = -23.0
+offset_right = 1598.0
+offset_bottom = 2977.0
+texture = ExtResource("2_fdd1n")
+
 [node name="Button3" type="Button" parent="." unique_id=1100038192]
 custom_minimum_size = Vector2(50, 260)
 layout_mode = 0
@@ -37,3 +54,12 @@ offset_top = 250.0
 offset_right = 1012.0
 offset_bottom = 330.0
 autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Button3" unique_id=306215881]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -802.0
+offset_top = -23.0
+offset_right = 1198.0
+offset_bottom = 2977.0
+texture = ExtResource("2_fdd1n")
