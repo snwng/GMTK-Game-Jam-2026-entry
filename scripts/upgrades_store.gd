@@ -27,10 +27,10 @@ var upgrade_pool: Array[Dictionary] = [
 		"apply": _apply_damage,
 	},
 	{
-	"name": "Super Bomb",
-	"desc": "Right-click to throw a bomb that explodes in a wide area (10s cooldown)",
-	"cost": 0,
-	"apply": _apply_super_bomb,
+		"name": "Super Bomb",
+		"desc": "Right-click to throw a bomb that explodes in a wide area (10s cooldown)",
+		"cost": 0,
+		"apply": _apply_super_bomb,
 	},
 	{
 		"name": "Fast Legs",
@@ -58,6 +58,7 @@ var upgrade_pool: Array[Dictionary] = [
 	},
 ]
 
+
 func _ready() -> void:
 	locate_buttons()
 	var choices: Array = upgrade_pool.duplicate()
@@ -72,6 +73,7 @@ func _ready() -> void:
 		buttons[i].text = upgrade.name + "\n" + upgrade.desc + cost_text
 		buttons[i].pressed.connect(_on_upgrade_chosen.bind(upgrade))
 
+
 func _on_upgrade_chosen(upgrade: Dictionary) -> void:
 	var player: Player = Global.game_manager.get_player()
 	upgrade.apply.call(player)
@@ -83,16 +85,20 @@ func _on_upgrade_chosen(upgrade: Dictionary) -> void:
 
 # --- Upgrade effects ---
 
+
 func _apply_fire_rate(player: Player) -> void:
 	print("old cooldown: ", player.weapon.cooldown)
 	player.weapon.cooldown /= 2.0
 	print("New cooldown: ", player.weapon.cooldown)
 
-func _apply_damage(player: Player) -> void:
+
+func _apply_damage(_player: Player) -> void:
 	Global.damage_multiplier *= 5.0
+
 
 func _apply_speed(player: Player) -> void:
 	player.VELOCITY *= 1.10
+
 
 func _apply_axe(player: Player) -> void:
 	var axe_scene: PackedScene = load("res://scenes/axe.tscn")
@@ -100,8 +106,10 @@ func _apply_axe(player: Player) -> void:
 	player.add_child(axe)
 	print("Axe added, children of player now: ", player.get_children())
 
+
 func _apply_turtle(player: Player) -> void:
 	player.VELOCITY *= 0.7
+
 
 func _apply_mouse(player: Player) -> void:
 	var collision: CollisionShape2D = player.get_node("CollisionShape2D")
@@ -110,24 +118,27 @@ func _apply_mouse(player: Player) -> void:
 	animated_sprite.scale *= 0.6
 	player.set_mouse_form(true)
 
-func _apply_bullet_size(player: Player) -> void:
+
+func _apply_bullet_size(_player: Player) -> void:
 	Global.bullet_scale_multiplier *= 1.5
-	
+
+
 func _apply_super_bomb(player: Player) -> void:
 	player.enable_super_bomb()
+
 
 func _close() -> void:
 	get_tree().paused = false
 	Global.game_manager.close_scene(self)
 	Global.game_manager.current_UI_scene = null
-	Global.game_manager.wave_manager.start_next_wave()	
-	
+	Global.game_manager.wave_manager.start_next_wave()
+
 func locate_buttons() -> void:
 	var screen_width: float = 720.0
 	var button_width: float = 160.0
 	var button_spacing: float = 20.0
 	var target_y_position: float = 100.0
-	
+
 	var total_buttons_width: float = button_width * 3
 	var total_spacing_width: float = button_spacing * 2
 	var total_block_width: float = total_buttons_width + total_spacing_width
@@ -148,21 +159,21 @@ func locate_buttons() -> void:
 
 	for index in range(buttons.size()):
 		var current_button: Button = buttons[index]
-		
+
 		current_button.custom_minimum_size = uniform_size
 		current_button.size = uniform_size
 
 		var dynamic_x: float = start_margin_x + index * (button_width + button_spacing)
 		current_button.position = Vector2(dynamic_x, target_y_position)
-		
+
 		var current_sprite: TextureRect = current_button.get_node_or_null("TextureRect")
-		
+
 		if current_sprite:
 			current_sprite.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			current_sprite.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 			current_sprite.stretch_mode = TextureRect.STRETCH_SCALE
 			current_sprite.position = Vector2.ZERO
-			
+
 
 			current_sprite.custom_minimum_size = uniform_size
 			current_sprite.size = uniform_size

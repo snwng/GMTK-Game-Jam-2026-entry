@@ -3,6 +3,7 @@ extends Node
 
 var game_manager: GameManager
 var fx_manager: FX_Manager
+var vo_manager: VOManager
 
 var language: int = 1
 

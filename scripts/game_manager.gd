@@ -16,11 +16,11 @@ var current_UI_scene: Node = null
 func _ready() -> void:
 	# Set the global game controller reference
 	Global.game_manager = self
-	
+
 	load_player()
-	
+
 	_update_health_display()
-	
+
 	# Connect the Timer's timeout signal to our update function via code
 	update_timer.timeout.connect(_on_timer_timeout)
 
@@ -89,15 +89,15 @@ func show_upgrade_screen() -> void:
 	change_UI_scene("res://scenes/ui/upgrades_store.tscn")
 	# Allow the upgrade screen to keep working while everything else freezes
 	current_UI_scene.process_mode = Node.PROCESS_MODE_ALWAYS
-	get_tree().paused = true	
-	
-	
+	world2D.get_tree().paused = true
+
+
 func _update_health_display() -> void:
 	if player != null:
 		var total_seconds: int = player.health
 		var minutes: int = total_seconds / 60
 		var seconds: int = total_seconds % 60
 		health_label.text = "HP: %02d:%02d" % [minutes, seconds]
-		
+
 func _on_timer_timeout() -> void:
 	_update_health_display()

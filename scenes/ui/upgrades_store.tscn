@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://ciw2n47i1c7nv" path="res://scripts/upgrades_store.gd" id="1_21qia"]
 [ext_resource type="Texture2D" uid="uid://bipok34o6hqkk" path="res://assets/Card2.png" id="2_fdd1n"]
 
+[sub_resource type="Theme" id="Theme_wotii"]
+
 [node name="Upgrades_store" type="Control" unique_id=668261765]
 layout_mode = 3
 anchors_preset = 15

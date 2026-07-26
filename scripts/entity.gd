@@ -5,6 +5,7 @@ class_name Entity extends CharacterBody2D
 @export var ACCELERATION: float = 4000.0
 @export var DECELERATION: float = 4000.0
 @export var MAX_HEALTH: int = 100
+@export var KNOCKBACK_FORCE: float = 500.0
 
 var health: int = 100
 
@@ -30,6 +31,9 @@ func move(direction: Vector2, delta: float) -> void:
 
 func is_alive() -> bool:
 	return health > 0
+
+func knocback(direction: Vector2, force: float = KNOCKBACK_FORCE) -> void:
+	velocity += direction.normalized() * force
 
 func _flash_red() -> void:
 	var sprite: CanvasItem = _get_visual_node()

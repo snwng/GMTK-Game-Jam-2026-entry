@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*uid://bnueitct7uygl"
 FxManager="uid://1gkabuflfklv"
+VoManager="uid://k7365d33k3cq"
 
 [debug]
 
