@@ -13,7 +13,7 @@ curve = SubResource("Curve_r8uo8")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wotii"]
 particle_flag_disable_z = true
 direction = Vector3(0, -1, 0)
-spread = 90.0
+spread = 180.0
 initial_velocity_min = 85.0
 initial_velocity_max = 95.0
 gravity = Vector3(0, 0, 0)
@@ -26,7 +26,7 @@ script = ExtResource("1_7poan")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1954785938]
 emitting = false
-amount = 10
+amount = 30
 texture = ExtResource("2_q624e")
 lifetime = 0.5
 one_shot = true

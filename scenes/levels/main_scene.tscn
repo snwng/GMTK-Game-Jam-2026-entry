@@ -309,6 +309,8 @@ script = ExtResource("21_nxfq7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=93847986]
 position = Vector2(-558, 0)
+collision_layer = 32
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1869888941]
 position = Vector2(-901.5, 32)
@@ -316,6 +318,7 @@ shape = SubResource("RectangleShape2D_nxxhf")
 
 [node name="Lava" type="StaticBody2D" parent="." unique_id=1352960641]
 position = Vector2(-157, 141)
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lava" unique_id=2090865374]
 position = Vector2(-1269, -3)
@@ -367,7 +370,7 @@ position = Vector2(1406, -893)
 shape = SubResource("CapsuleShape2D_3h10a")
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="Lava" unique_id=1469876293]
-position = Vector2(1733, -508)
+position = Vector2(1659, -551)
 shape = SubResource("CapsuleShape2D_agd1n")
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="Lava" unique_id=772288620]
@@ -416,6 +419,8 @@ shape = SubResource("CapsuleShape2D_deywp")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=2118641690]
 position = Vector2(3808, 0)
+collision_layer = 32
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=714040703]
 position = Vector2(-901.5, 32)
@@ -424,6 +429,8 @@ shape = SubResource("RectangleShape2D_nxxhf")
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=2043589918]
 position = Vector2(579, -54)
 rotation = 1.5707964
+collision_layer = 32
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=2525612]
 position = Vector2(-1065, -272)
@@ -432,6 +439,8 @@ shape = SubResource("RectangleShape2D_nxxhf")
 [node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1558395149]
 position = Vector2(579, 2362)
 rotation = 1.5707964
+collision_layer = 32
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1916044630]
 position = Vector2(-1065, -272)

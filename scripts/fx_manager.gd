@@ -2,6 +2,7 @@ class_name FX_Manager extends Node
 
 
 const HITFX: PackedScene = preload("res://scenes/particles/hit_particles.tscn")
+const EXPLOSTION: PackedScene = preload("res://scenes/particles/explosion_particles.tscn")
 
 
 func _ready() -> void:
