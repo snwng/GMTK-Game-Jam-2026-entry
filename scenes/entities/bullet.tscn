@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://drtblbdb18uqy" path="res://scripts/projectile.gd" id="1_byxw7"]
 [ext_resource type="Texture2D" uid="uid://bbgimtep48bbk" path="res://assets/sprites/Bullet.png" id="2_byxw7"]
+[ext_resource type="AudioStream" uid="uid://qv3qn0uily0l" path="res://assets/audio/sfx/zapsplat_warfare_gun_gel_blaster_scar_2_auto_rifle.wav" id="3_6yx2q"]
+[ext_resource type="AudioStream" uid="uid://c8l70el3dfrdy" path="res://assets/audio/sfx/smartsound_WEAPONS_BULLET_Small_Impact_Body_01_short.wav" id="4_ltso5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ss7kx"]
 size = Vector2(16, 10)
@@ -21,3 +23,10 @@ shape = SubResource("RectangleShape2D_ss7kx")
 [node name="Timer" type="Timer" parent="." unique_id=1366101186]
 wait_time = 2.0
 autostart = true
+
+[node name="ShootAudio" type="AudioStreamPlayer2D" parent="." unique_id=734579568]
+stream = ExtResource("3_6yx2q")
+
+[node name="HitAudio" type="AudioStreamPlayer2D" parent="." unique_id=1959453822]
+stream = ExtResource("4_ltso5")
+volume_db = -5.0

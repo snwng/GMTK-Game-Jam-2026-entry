@@ -8,7 +8,9 @@ extends Node2D
 func _ready() -> void:
 
 	$Intro_music.play()
-
+	$Red.play("default")
+	$Mouse.play("default")
+	
 func _on_LabelBlinkTimer_timeout() -> void:
 	# label blinks
 	blinking_label.visible = not blinking_label.visible
@@ -32,3 +34,11 @@ func _on_start_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_screenshake_pressed() -> void:
+	$Press_sound.play()
+
+
+func _on_screenshake_mouse_entered() -> void:
+	$Hover_sound.play()

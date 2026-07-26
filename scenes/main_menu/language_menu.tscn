@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://qnehj38t5cla" path="res://icon.svg" id="2_v18go"]
 [ext_resource type="Script" uid="uid://c8606cj34t43w" path="res://scripts/camera_effects.gd" id="3_v18go"]
 [ext_resource type="FontFile" uid="uid://cclikoqyalfo8" path="res://assets/fonts/yoster.ttf" id="3_ydtb5"]
+[ext_resource type="AudioStream" uid="uid://duvolcp443r8a" path="res://assets/audio/sfx/zapsplat_multimedia_button_click_006_53867.mp3" id="4_q365m"]
+[ext_resource type="AudioStream" uid="uid://cv2um33orikn3" path="res://assets/audio/sfx/Menu_Sounds_V2_Metallic_HOVER_SHORT.mp3" id="5_m0hot"]
 
 [node name="Language_menu" type="Node2D" unique_id=1878250518]
 script = ExtResource("1_l3eag")
@@ -47,8 +49,10 @@ wait_time = 0.5
 autostart = true
 
 [node name="Press_sound" type="AudioStreamPlayer" parent="." unique_id=2084853741]
+stream = ExtResource("4_q365m")
 
 [node name="Hover_sound" type="AudioStreamPlayer" parent="." unique_id=379748915]
+stream = ExtResource("5_m0hot")
 
 [node name="Intro_music" type="AudioStreamPlayer" parent="." unique_id=601528501]
 volume_db = -13.117

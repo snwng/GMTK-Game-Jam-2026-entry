@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://qnehj38t5cla" path="res://icon.svg" id="2_po8g6"]
 [ext_resource type="FontFile" uid="uid://cclikoqyalfo8" path="res://assets/fonts/yoster.ttf" id="3_no65u"]
 [ext_resource type="Script" uid="uid://c8606cj34t43w" path="res://scripts/camera_effects.gd" id="4_6kmvh"]
+[ext_resource type="AudioStream" uid="uid://duvolcp443r8a" path="res://assets/audio/sfx/zapsplat_multimedia_button_click_006_53867.mp3" id="4_bewxv"]
+[ext_resource type="AudioStream" uid="uid://cv2um33orikn3" path="res://assets/audio/sfx/Menu_Sounds_V2_Metallic_HOVER_SHORT.mp3" id="5_no65u"]
 
 [node name="Credits" type="Node2D" unique_id=1878250518]
 script = ExtResource("1_728ge")
@@ -34,14 +36,14 @@ text = "Credits
 Programming
 DualGen Studios :
 Neon
-DoubleM
+DoubleM Marco 
 
 Art:
 Zynox
 CitTheCat
 
 Music and game organization:
-Goofy
+Ayrton 'SFXGoofy' Izquierdo
 
 Voice actor:
 Devin
@@ -65,8 +67,10 @@ wait_time = 0.5
 autostart = true
 
 [node name="Press_sound" type="AudioStreamPlayer" parent="." unique_id=2084853741]
+stream = ExtResource("4_bewxv")
 
 [node name="Hover_sound" type="AudioStreamPlayer" parent="." unique_id=379748915]
+stream = ExtResource("5_no65u")
 
 [node name="Intro_music" type="AudioStreamPlayer" parent="." unique_id=601528501]
 volume_db = -13.117
@@ -96,7 +100,18 @@ theme_override_colors/font_color = Color(0, 0, 0.8745098, 1)
 theme_override_fonts/font = ExtResource("3_no65u")
 theme_override_font_sizes/font_size = 9
 text = "Dual Gen Studios's itch.io page"
-uri = "https://store.steampowered.com/app/2645800/MEDAL_WINNERS/"
+uri = "https://dualgenstudios.itch.io/"
+
+[node name="LinkButton_Zynox" type="LinkButton" parent="." unique_id=305508102]
+offset_left = 757.0
+offset_top = 285.0
+offset_right = 898.0
+offset_bottom = 325.0
+theme_override_colors/font_color = Color(0, 0, 0.8745098, 1)
+theme_override_fonts/font = ExtResource("3_no65u")
+theme_override_font_sizes/font_size = 9
+text = "Zyno's itch.io page"
+uri = "https://zynoxst.itch.io/"
 
 [node name="LinkButton_CitThecat" type="LinkButton" parent="." unique_id=1526932530]
 offset_left = 757.0
@@ -109,6 +124,27 @@ theme_override_font_sizes/font_size = 9
 text = "CitTheCat's itch.io page"
 uri = "https://citthecat.itch.io/"
 
+[node name="LinkButton_Devin" type="LinkButton" parent="." unique_id=1737371866]
+offset_left = 757.0
+offset_top = 376.0
+offset_right = 875.0
+offset_bottom = 416.0
+theme_override_colors/font_color = Color(0, 0, 0.8745098, 1)
+theme_override_fonts/font = ExtResource("3_no65u")
+theme_override_font_sizes/font_size = 9
+text = "Devin's Instagram"
+uri = "https://www.instagram.com/devinsmith_va/"
+
 [connection signal="mouse_entered" from="Back" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="timeout" from="LabelBlinkTimer" to="." method="_on_LabelBlinkTimer_timeout"]
+[connection signal="mouse_entered" from="LinkButton_Dual" to="." method="_on_link_button_entered"]
+[connection signal="pressed" from="LinkButton_Dual" to="." method="_on_link_button_dual_pressed"]
+[connection signal="mouse_entered" from="LinkButton_Dual2" to="." method="_on_link_button_entered"]
+[connection signal="pressed" from="LinkButton_Dual2" to="." method="_on_link_button_dual_2_pressed"]
+[connection signal="mouse_entered" from="LinkButton_Zynox" to="." method="_on_link_button_entered"]
+[connection signal="pressed" from="LinkButton_Zynox" to="." method="_on_link_button_zynox_pressed"]
+[connection signal="mouse_entered" from="LinkButton_CitThecat" to="." method="_on_link_button_entered"]
+[connection signal="pressed" from="LinkButton_CitThecat" to="." method="_on_link_button_cit_thecat_pressed"]
+[connection signal="mouse_entered" from="LinkButton_Devin" to="." method="_on_link_button_entered"]
+[connection signal="pressed" from="LinkButton_Devin" to="." method="_on_link_button_devin_pressed"]

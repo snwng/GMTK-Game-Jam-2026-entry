@@ -12,6 +12,8 @@ var bullet_scale_multiplier: float = 1.0 #for upgrades
 
 var screen_shake_enabled: bool = true
 
+var time_drain_multiplier: float = 1.0 #for the totem
+
 func _ready() -> void:
 	pass
 

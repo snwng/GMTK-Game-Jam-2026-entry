@@ -2,12 +2,16 @@
 
 [ext_resource type="Script" uid="uid://ho05s7boi2p4" path="res://scripts/spell_projectile.gd" id="1_drqht"]
 [ext_resource type="Texture2D" uid="uid://claodm8mcti1y" path="res://assets/sprites/spell_projectile_sprite.png" id="2_drqht"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/smartsound_WEAPONS_BULLET_Small_Impact_Body_01.mp3" id="2_x63ew"]
+[ext_resource type="AudioStream" uid="uid://duvolcp443r8a" path="res://assets/audio/sfx/zapsplat_multimedia_button_click_006_53867.mp3" id="4_smio8"]
+[ext_resource type="AudioStream" uid="uid://c8l70el3dfrdy" path="res://assets/audio/sfx/smartsound_WEAPONS_BULLET_Small_Impact_Body_01_short.wav" id="5_74omn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxfq7"]
 radius = 6.0
 
 [node name="Spell_projectile" type="Node2D" unique_id=1523633697]
 script = ExtResource("1_drqht")
+hit_sound = ExtResource("2_x63ew")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1447579324]
 position = Vector2(1.9073486e-06, -1.1920929e-06)
@@ -21,3 +25,11 @@ shape = SubResource("CircleShape2D_nxfq7")
 [node name="Timer" type="Timer" parent="." unique_id=1366101186]
 wait_time = 2.0
 autostart = true
+
+[node name="ShootAudio" type="AudioStreamPlayer2D" parent="." unique_id=1946367358]
+stream = ExtResource("4_smio8")
+volume_db = -2.0
+
+[node name="HitAudio" type="AudioStreamPlayer2D" parent="." unique_id=1938793246]
+stream = ExtResource("5_74omn")
+volume_db = -5.0

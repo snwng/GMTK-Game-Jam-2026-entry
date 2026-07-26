@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://bq3oqdklf2bdq"]
 
 [ext_resource type="Script" uid="uid://bbw1h5vl235ro" path="res://scripts/game_manager.gd" id="1_6312j"]
-[ext_resource type="PackedScene" uid="uid://nl7bcs3w2xfu" path="res://scenes/entities/enemy.tscn" id="3_3ulyp"]
 [ext_resource type="Texture2D" uid="uid://vye6dbs2v4wk" path="res://assets/sprites/Lava_Tileset/Lava_V4_Bot.png" id="4_df41j"]
 [ext_resource type="Texture2D" uid="uid://c8bcmveaqd7uv" path="res://assets/sprites/Lava_Tileset/Lava_V4_BotLefttCorner.png" id="5_6u8e5"]
 [ext_resource type="Texture2D" uid="uid://btv4cvrwtgo3u" path="res://assets/sprites/Lava_Tileset/Lava_V4_BotRightCorner.png" id="6_84bhp"]
@@ -11,18 +10,20 @@
 [ext_resource type="Texture2D" uid="uid://b8pa7x7p756sn" path="res://assets/sprites/Lava_Tileset/Lava_V4_Top.png" id="10_o6frn"]
 [ext_resource type="Texture2D" uid="uid://dwee86i5p11lo" path="res://assets/sprites/Lava_Tileset/Lava_V4_TopLeftCorner.png" id="11_pkib5"]
 [ext_resource type="Texture2D" uid="uid://coucv6jqp5xt4" path="res://assets/sprites/Lava_Tileset/Lava_V4_TopRightCorner.png" id="12_efd43"]
-[ext_resource type="PackedScene" uid="uid://b43l1gluolxj1" path="res://scenes/entities/witch.tscn" id="13_efd43"]
 [ext_resource type="PackedScene" uid="uid://bnjcm4tqebbwl" path="res://scenes/entities/rock_1.tscn" id="15_3jqmn"]
 [ext_resource type="PackedScene" uid="uid://cglarhmsmqb2r" path="res://scenes/entities/rock_2.tscn" id="16_o6frn"]
 [ext_resource type="PackedScene" uid="uid://kwm58ms7btg" path="res://scenes/entities/rock_3.tscn" id="17_pkib5"]
 [ext_resource type="PackedScene" uid="uid://bl5ntjcxnpvqf" path="res://scenes/levels/Level1.tscn" id="18_deywp"]
-[ext_resource type="PackedScene" uid="uid://cbvcpepxgh77r" path="res://scenes/entities/enemy_golem.tscn" id="18_nxfq7"]
 [ext_resource type="PackedScene" uid="uid://crt87svnjwlm" path="res://scenes/entities/barrel.tscn" id="18_o6frn"]
 [ext_resource type="PackedScene" uid="uid://buohd4s570g42" path="res://scenes/levels/screenshake_checkbutton.tscn" id="19_pkib5"]
 [ext_resource type="FontFile" uid="uid://cclikoqyalfo8" path="res://assets/fonts/yoster.ttf" id="19_r8nyi"]
 [ext_resource type="Texture2D" uid="uid://ct8l28b6p2euk" path="res://assets/sprites/super_bomb_sprite.png" id="20_nxfq7"]
 [ext_resource type="Script" uid="uid://cbfma1m5361bu" path="res://scripts/bombUI.gd" id="21_deywp"]
+[ext_resource type="Texture2D" uid="uid://d0t2lmocfgdy5" path="res://assets/sprites/Backgraound_white.png" id="21_irvof"]
 [ext_resource type="Script" uid="uid://ck833whbljk61" path="res://scripts/wave_manager.gd" id="21_nxfq7"]
+[ext_resource type="AudioStream" uid="uid://crtih1kx52w32" path="res://assets/audio/voiceovers/INTRO.wav" id="24_v0rl3"]
+[ext_resource type="AudioStream" uid="uid://u8mx5pbp0bro" path="res://assets/audio/music/theme.mp3" id="25_irvof"]
+[ext_resource type="AudioStream" uid="uid://vmoc2oq44or1" path="res://assets/audio/music/music_kulluh_Stardust_Render_031.mp3" id="25_wn3jb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nxfq7"]
 texture = ExtResource("4_df41j")
@@ -183,12 +184,6 @@ position = Vector2(301, 205)
 tile_map_data = PackedByteArray("AAD//wEAAwAAAAAAAAABAAEAAwAAAAAAAAAAAAEAAwAAAAAAAAD+/wEAAwAAAAAAAAD9/wEAAwAAAAAAAAACAAEABQAAAAAAAAACAAAACAAAAAAAAAD8/wAABwAAAAAAAAD8/wEABAAAAAAAAAD9/wAABgAAAAAAAAD+/wAABgAAAAAAAAD//wAABgAAAAAAAAAAAAAABgAAAAAAAAABAAAABgAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD8/wIAAQAAAAAAAAACAAIAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_w01f4")
 
-[node name="Enemy" parent="World2D" unique_id=108608531 instance=ExtResource("3_3ulyp")]
-position = Vector2(-68, -76)
-
-[node name="Witch" parent="World2D" unique_id=495076532 instance=ExtResource("13_efd43")]
-position = Vector2(-184, -15)
-
 [node name="Rocks" type="Node" parent="World2D" unique_id=1282416192]
 
 [node name="Rock_1" parent="World2D/Rocks" unique_id=474157329 instance=ExtResource("15_3jqmn")]
@@ -204,9 +199,6 @@ position = Vector2(-72, -29)
 [node name="Barrel" parent="World2D/Barrels" unique_id=1198396894 instance=ExtResource("18_o6frn")]
 position = Vector2(126, -12)
 
-[node name="Enemy2" parent="World2D" unique_id=375319499 instance=ExtResource("18_nxfq7")]
-position = Vector2(-105, -80)
-
 [node name="UI" type="CanvasLayer" parent="." unique_id=1049719307]
 
 [node name="Health" type="Label" parent="UI" unique_id=729537758]
@@ -214,6 +206,7 @@ offset_left = 32.0
 offset_top = 35.0
 offset_right = 72.0
 offset_bottom = 58.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("19_r8nyi")
 text = "00"
 
@@ -221,6 +214,8 @@ text = "00"
 autostart = true
 
 [node name="Screenshake" parent="UI" unique_id=88986131 instance=ExtResource("19_pkib5")]
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("19_r8nyi")
 
 [node name="TextureRect_bomb" type="TextureRect" parent="UI" unique_id=222150817]
@@ -230,6 +225,84 @@ offset_right = 62.0
 offset_bottom = 99.0
 texture = ExtResource("20_nxfq7")
 script = ExtResource("21_deywp")
+
+[node name="Color_ganaste" type="Sprite2D" parent="UI" unique_id=999788820]
+visible = false
+modulate = Color(0.29219002, 0.29219005, 0.29219002, 1)
+position = Vector2(1023.99994, 237.99983)
+scale = Vector2(440.87497, 283.12497)
+texture = ExtResource("21_irvof")
+
+[node name="Color_lose" type="Sprite2D" parent="UI" unique_id=1898981704]
+visible = false
+modulate = Color(0.29219002, 0.29219005, 0.29219002, 1)
+position = Vector2(1023.99994, 237.99983)
+scale = Vector2(440.87497, 283.12497)
+texture = ExtResource("21_irvof")
+
+[node name="Label_win" type="Label" parent="UI" unique_id=1246301571]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -24.5
+offset_right = 106.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 9
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("19_r8nyi")
+theme_override_font_sizes/font_size = 28
+text = "You win!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_lose" type="Label" parent="UI" unique_id=1821050845]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -24.5
+offset_right = 106.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 9
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("19_r8nyi")
+theme_override_font_sizes/font_size = 28
+text = "You lose!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button_retry" type="Button" parent="UI" unique_id=1535207548]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -53.0
+offset_right = 169.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="WaveManager" type="Node" parent="." unique_id=1932378893]
 script = ExtResource("21_nxfq7")
@@ -363,3 +436,15 @@ rotation = 1.5707964
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1916044630]
 position = Vector2(-1065, -272)
 shape = SubResource("RectangleShape2D_nxxhf")
+
+[node name="10000_hours" type="AudioStreamPlayer" parent="." unique_id=1286319052]
+stream = ExtResource("24_v0rl3")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1023889428]
+stream = ExtResource("25_irvof")
+volume_db = -7.0
+autoplay = true
+
+[node name="WinMusic" type="AudioStreamPlayer" parent="." unique_id=1610292218]
+stream = ExtResource("25_wn3jb")
+volume_db = -12.0

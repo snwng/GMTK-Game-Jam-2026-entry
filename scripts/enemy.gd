@@ -47,19 +47,49 @@ func _physics_process(delta: float) -> void:
 		if direction.x != 0:
 			$AnimatedSprite2D.flip_h = direction.x > 0
 
+
+
 func _try_attack() -> void:
 	if not can_attack or not goal:
 		return
 	if global_position.distance_to(goal.global_position) <= attack_range:
 		$AnimatedSprite2D.play("attack")
 		goal.take_damage(attack_damage)
+		
+		# 80% de probabilidad (0.8) y comprobación de seguridad para evitar errores 'null'
+		if is_alive() and randf() <= 0.99 and has_node("AudioStreamPlayer2D") and is_instance_valid($AudioStreamPlayer2D):
+			$AudioStreamPlayer2D.pitch_scale = randf_range(0.85, 1.15)
+			$AudioStreamPlayer2D.play()
+
 		can_attack = false
 		await $AnimatedSprite2D.animation_finished
 		await get_tree().create_timer(ATTACK_ANIM_DURATION).timeout
+		
+		# Verificación extra por si murió durante los 'await'
 		if is_alive():
 			$AnimatedSprite2D.play("idle")
+			
 		is_retreating = true
 		await get_tree().create_timer(RETREAT_DISTANCE / RETREAT_SPEED).timeout
 		is_retreating = false
 		await get_tree().create_timer(max(attack_cooldown - ATTACK_ANIM_DURATION - (RETREAT_DISTANCE / RETREAT_SPEED), 0.0)).timeout
 		can_attack = true
+
+
+
+#func _try_attack() -> void:
+	#if not can_attack or not goal:
+		#return
+	#if global_position.distance_to(goal.global_position) <= attack_range:
+		#$AnimatedSprite2D.play("attack")
+		#goal.take_damage(attack_damage)
+		#can_attack = false
+		#await $AnimatedSprite2D.animation_finished
+		#await get_tree().create_timer(ATTACK_ANIM_DURATION).timeout
+		#if is_alive():
+			#$AnimatedSprite2D.play("idle")
+		#is_retreating = true
+		#await get_tree().create_timer(RETREAT_DISTANCE / RETREAT_SPEED).timeout
+		#is_retreating = false
+		#await get_tree().create_timer(max(attack_cooldown - ATTACK_ANIM_DURATION - (RETREAT_DISTANCE / RETREAT_SPEED), 0.0)).timeout
+		#can_attack = true

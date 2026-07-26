@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="gamejam-entry"
-run/main_scene="uid://bq3oqdklf2bdq"
+run/main_scene="uid://dhvop0ard0x0k"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*uid://bnueitct7uygl"
-FxManager="uid://1gkabuflfklv"
-VoManager="uid://k7365d33k3cq"
+FxManager="*uid://1gkabuflfklv"
+VoManager="*uid://k7365d33k3cq"
 
 [debug]
 

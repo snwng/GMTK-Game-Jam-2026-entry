@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dor2es84x8d0m" path="res://scripts/enemy_golem.gd" id="1_gh44o"]
 [ext_resource type="Texture2D" uid="uid://bl0hl0i8ul2l0" path="res://assets/sprites/Minotaur_attack.png" id="2_m61m1"]
 [ext_resource type="Texture2D" uid="uid://bfds4n8k060s7" path="res://assets/sprites/Minotaur_idle.png" id="3_soem8"]
+[ext_resource type="AudioStream" uid="uid://c8l70el3dfrdy" path="res://assets/audio/sfx/smartsound_WEAPONS_BULLET_Small_Impact_Body_01_short.wav" id="4_m61m1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_muwqx"]
 atlas = ExtResource("2_m61m1")
@@ -95,7 +96,6 @@ metadata/_edit_vertical_guides_ = [-22.0]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1461385682]
 script = ExtResource("1_gh44o")
-MAX_HEALTH = 250
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1322157755]
 position = Vector2(0, -14)
@@ -109,6 +109,10 @@ position = Vector2(-11, -7)
 shape = SubResource("RectangleShape2D_w01f4")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D" unique_id=229729719]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CharacterBody2D" unique_id=1246655522]
+stream = ExtResource("4_m61m1")
+volume_db = 1.0
 
 [node name="Timer" type="Timer" parent="." unique_id=595445072]
 autostart = true

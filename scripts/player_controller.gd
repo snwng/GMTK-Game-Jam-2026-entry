@@ -81,7 +81,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	self.take_damage(1, false) # time drain, no red flash
+	self.take_damage(int(1 * Global.time_drain_multiplier), false) #incluye totem
+	#self.take_damage(1, false) # time drain, no red flash
 
 func _update_animation() -> void:
 	var is_moving: bool = velocity.length() > 5.0 # small threshold to avoid flicker when stopping
