@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://br0cgcg8kf31y"]
+
+[ext_resource type="Script" uid="uid://bntu54oanbyyk" path="res://scripts/credits.gd" id="1_728ge"]
+[ext_resource type="Texture2D" uid="uid://qnehj38t5cla" path="res://icon.svg" id="2_po8g6"]
+[ext_resource type="FontFile" uid="uid://cclikoqyalfo8" path="res://assets/fonts/yoster.ttf" id="3_no65u"]
+[ext_resource type="Script" uid="uid://c8606cj34t43w" path="res://scripts/camera_effects.gd" id="4_6kmvh"]
+
+[node name="Credits" type="Node2D" unique_id=1878250518]
+script = ExtResource("1_728ge")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=702460871]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(764, 385)
+scale = Vector2(10.1875, 5.8828125)
+texture = ExtResource("2_po8g6")
+
+[node name="Back" type="Button" parent="." unique_id=976892784]
+offset_left = 1142.0
+offset_top = 513.0
+offset_right = 1214.0
+offset_bottom = 544.0
+theme_override_fonts/font = ExtResource("3_no65u")
+text = "Back"
+
+[node name="Label" type="Label" parent="." unique_id=622678011]
+offset_left = 544.0
+offset_top = 182.0
+offset_right = 918.0
+offset_bottom = 555.0
+theme_override_fonts/font = ExtResource("3_no65u")
+theme_override_font_sizes/font_size = 9
+text = "Credits
+
+Programming
+DualGen Studios :
+Neon
+DoubleM
+
+Art:
+Zynox
+CitTheCat
+
+Music and game organization:
+Goofy
+
+Voice actor:
+Devin
+
+This game uses the following free assets:
+Final boss: https://soliddragon.itch.io/monster
+The minotaur: https://elthen.itch.io/2d-pixel-art-minotaur-sprites
+\"Additional sound effects from https://www.zapsplat.com“
+“Music from https://www.zapsplat.com“ 
+One sound belongs to Noah Kuehne. It is free
+ under Creative Commons Attribution 4.0 International License.
+Yoster Island Font
+
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelBlinkTimer" type="Timer" parent="." unique_id=404146927]
+wait_time = 0.5
+autostart = true
+
+[node name="Press_sound" type="AudioStreamPlayer" parent="." unique_id=2084853741]
+
+[node name="Hover_sound" type="AudioStreamPlayer" parent="." unique_id=379748915]
+
+[node name="Intro_music" type="AudioStreamPlayer" parent="." unique_id=601528501]
+volume_db = -13.117
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1249009380]
+position = Vector2(878, 370)
+script = ExtResource("4_6kmvh")
+metadata/_custom_type_script = "uid://c8606cj34t43w"
+
+[node name="LinkButton_Dual" type="LinkButton" parent="." unique_id=34996332]
+offset_left = 778.0
+offset_top = 220.0
+offset_right = 901.0
+offset_bottom = 260.0
+theme_override_colors/font_color = Color(0, 0, 0.8745098, 1)
+theme_override_fonts/font = ExtResource("3_no65u")
+theme_override_font_sizes/font_size = 9
+text = "Dual Gen Studios  Steam game"
+uri = "https://store.steampowered.com/app/2645800/MEDAL_WINNERS/"
+
+[node name="LinkButton_Dual2" type="LinkButton" parent="." unique_id=462853031]
+offset_left = 942.0
+offset_top = 220.0
+offset_right = 1086.0
+offset_bottom = 260.0
+theme_override_colors/font_color = Color(0, 0, 0.8745098, 1)
+theme_override_fonts/font = ExtResource("3_no65u")
+theme_override_font_sizes/font_size = 9
+text = "Dual Gen Studios's itch.io page"
+uri = "https://store.steampowered.com/app/2645800/MEDAL_WINNERS/"
+
+[node name="LinkButton_CitThecat" type="LinkButton" parent="." unique_id=1526932530]
+offset_left = 757.0
+offset_top = 298.0
+offset_right = 806.0
+offset_bottom = 338.0
+theme_override_colors/font_color = Color(0, 0, 0.8745098, 1)
+theme_override_fonts/font = ExtResource("3_no65u")
+theme_override_font_sizes/font_size = 9
+text = "CitTheCat's itch.io page"
+uri = "https://citthecat.itch.io/"
+
+[connection signal="mouse_entered" from="Back" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="timeout" from="LabelBlinkTimer" to="." method="_on_LabelBlinkTimer_timeout"]
